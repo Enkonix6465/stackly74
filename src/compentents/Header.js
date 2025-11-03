@@ -140,10 +140,10 @@ const Header = ({ toggleTheme, isDark }) => {
         "/services",
         "/education",
         "/healthcare",
-        "/family-law",
-        "/real-estate",
-        "/tax-law",
-        "/international-law",
+        "/training",
+        "/cleanwater",
+        "/emergency-relief",
+        "/child-protection",
         
       ].includes(location.pathname)
     )
@@ -172,7 +172,7 @@ const Header = ({ toggleTheme, isDark }) => {
   const toggleMobileNav = () => setMobileNavOpen((prev) => !prev);
 
   return (
-    <header className="fixed top-0 left-0 w-full bg-white dark:bg-black text-black dark:text-gray-100 flex justify-between items-center px-6 py-4 border-b border-gray-300 dark:border-gray-700 z-50">
+    <header className="fixed top-0 left-0 w-full bg-white dark:bg-black text-black dark:text-white flex justify-between items-center px-6 py-4 border-b border-black dark:border-white z-50">
       {/* Logo */}
       <nav className="flex-shrink-0">
         <Link to="/home1">
@@ -190,7 +190,7 @@ const Header = ({ toggleTheme, isDark }) => {
         <div className="relative">
           <span
             className={`cursor-pointer font-medium ${
-              activeLink === "home" ? "text-[#25be85] dark:text-[#25be85]" : ""
+              activeLink === "home" ? "text-[#4B80B3] dark:text-[#4B80B3]" : ""
             }`}
             onClick={() => handleMainClick("home1")}
           >
@@ -203,18 +203,18 @@ const Header = ({ toggleTheme, isDark }) => {
             ▼
           </span>
           {activeDropdown === "home" && (
-            <div className="absolute left-0 mt-2 flex flex-col bg-gray-100 dark:bg-gray-800 rounded shadow-md min-w-[160px] z-50">
+            <div className="absolute left-0 mt-2 flex flex-col bg-white dark:bg-black rounded shadow-md min-w-[160px] z-50 border border-black dark:border-white">
               <Link
                 to="/home1"
                 onClick={handleLinkClick}
-                className="px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700"
+                className="px-4 py-2 hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black"
               >
                 Home1
               </Link>
               <Link
                 to="/home2"
                 onClick={handleLinkClick}
-                className="px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700"
+                className="px-4 py-2 hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black"
               >
                 Home 2
               </Link>
@@ -227,7 +227,7 @@ const Header = ({ toggleTheme, isDark }) => {
           to="/about"
           onClick={handleLinkClick}
           className={`font-medium ${
-            activeLink === "about" ? "text-[#25be85] dark:text-[#25be85]" : ""
+            activeLink === "about" ? "text-[#4B80B3] dark:text-[#4B80B3]" : ""
           }`}
         >
           {translations[language].about}
@@ -237,7 +237,7 @@ const Header = ({ toggleTheme, isDark }) => {
         <div className="relative">
           <span
             className={`cursor-pointer font-medium ${
-              activeLink === "services" ? "text-[#25be85] dark:text-[#25be85]" : ""
+              activeLink === "services" ? "text-[#4B80B3] dark:text-[#4B80B3]" : ""
             }`}
             onClick={() => handleMainClick("services")}
           >
@@ -250,22 +250,22 @@ const Header = ({ toggleTheme, isDark }) => {
             ▼
           </span>
           {activeDropdown === "services" && (
-            <div className="absolute left-0 mt-2 flex flex-col bg-gray-100 dark:bg-gray-800 rounded shadow-md min-w-[200px] z-50">
+            <div className="absolute left-0 mt-2 flex flex-col bg-white dark:bg-black rounded shadow-md min-w-[200px] z-50 border border-black dark:border-white">
               {[
                 { to: "/education", label: "Education" },
                 { to: "/healthcare", label: "Healthcare" },
-                { to: "/family-law", label: "Family Law" },
-                { to: "/real-estate", label: "Real Estate" },
-                { to: "/tax-law", label: "Tax Law" },
-                { to: "/international-law", label: "International Law" },
-                
+                { to: "/training", label: "Training" },
+                { to: "/cleanwater", label: "Clean Water" },
+                { to: "/emergency-relief", label: "Emergency Relief" },
+                { to: "/child-protection", label: "Child Protection" },
+
                 { to: "/services", label: "Services" }
               ].map((item) => (
                 <Link
                   key={item.to}
                   to={item.to}
                   onClick={handleLinkClick}
-                  className="px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700"
+                  className="px-4 py-2 hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black"
                 >
                   {item.label}
                 </Link>
@@ -279,7 +279,7 @@ const Header = ({ toggleTheme, isDark }) => {
           to="/blog"
           onClick={handleLinkClick}
           className={`font-medium ${
-            activeLink === "blog" ? "text-[#25be85] dark:text-[#25be85]" : ""
+            activeLink === "blog" ? "text-[#4B80B3] dark:text-[#4B80B3]" : ""
           }`}
         >
           {translations[language].blog}
@@ -290,7 +290,7 @@ const Header = ({ toggleTheme, isDark }) => {
           to="/contact"
           onClick={handleLinkClick}
           className={`font-medium ${
-            activeLink === "contact" ? "text-[#25be85] dark:text-[#25be85]" : ""
+            activeLink === "contact" ? "text-[#4B80B3] dark:text-[#4B80B3]" : ""
           }`}
         >
           {translations[language].contact}
@@ -303,7 +303,7 @@ const Header = ({ toggleTheme, isDark }) => {
         <select
           value={language}
           onChange={handleLanguageChange}
-          className="border rounded px-2 py-1 bg-white dark:bg-black text-black dark:text-white"
+          className="border border-black dark:border-white rounded px-2 py-1 bg-white dark:bg-black text-black dark:text-white"
         >
           <option value="en">English</option>
           <option value="ar">العربية</option>
@@ -321,22 +321,22 @@ const Header = ({ toggleTheme, isDark }) => {
         <div ref={avatarRef} className="relative z-10">
           <div
             className="w-10 h-10 text-white flex items-center justify-center rounded-full font-bold cursor-pointer"
-            style={{ backgroundColor: "#25be85" }}
+            style={{ backgroundColor: "#4B80B3" }}
             onClick={toggleAvatarDropdown}
           >
             {initials || "AD"}
           </div>
           {avatarDropdownOpen && (
-            <div className="absolute right-0 mt-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded shadow-md min-w-[120px] z-50">
+            <div className="absolute right-0 mt-2 bg-white dark:bg-black border border-black dark:border-white rounded shadow-md min-w-[120px] z-50">
               <button
                 onClick={handleDashboardClick}
-                className="w-full px-4 py-2 text-left text-sm hover:bg-gray-100 dark:hover:bg-gray-700 border-b border-gray-200 dark:border-gray-600"
+                className="w-full px-4 py-2 text-left text-sm hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black border-b border-black dark:border-white"
               >
                 {translations[language].dashboard}
               </button>
               <button
                 onClick={handleLogout}
-                className="w-full px-4 py-2 text-left text-sm hover:bg-gray-100 dark:hover:bg-gray-700"
+                className="w-full px-4 py-2 text-left text-sm hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black"
               >
                 {translations[language].logout}
               </button>

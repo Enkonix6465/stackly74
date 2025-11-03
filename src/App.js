@@ -12,14 +12,15 @@ import Admin from "./pages/AdminDashboard";
 import ContactUs from "./pages/ContactUs";
 import AdminDashboard from "./pages/AdminDashboard";
 import Healthcare from "./pages/Healthcare";
-import FamilyLaw from "./pages/FamilyLaw";
-import RealEstate from "./pages/RealEstate";
-import TaxLaw from "./pages/TaxLaw";
-import InternationalLaw from "./pages/InternationalLaw";
+import Training from "./pages/Training";
+import CleanWater from "./pages/CleanWater";
+import EmergencyReleif from "./pages/EmergencyReleif";
+import ChildProtection from "./pages/ChildProtection";
 import Blog1 from "./pages/Blog1";
 import Blog2 from "./pages/Blog2";
 import Blog3 from "./pages/Blog3";
 import Footer from "./compentents/Footer";
+import EmergencyRelief from "./pages/EmergencyReleif";
 function App() {
   const location = useLocation();
   const [isDark, setIsDark] = useState(false);
@@ -62,11 +63,11 @@ function App() {
           <Route path="/services" element={<Services />} /> {/* ✅ route */}
           <Route path="/education" element={<Education />} />
           <Route path="/healthcare" element={<Healthcare />} />
-          <Route path="/family-law" element={<FamilyLaw />} />
-          <Route path="/real-estate" element={<RealEstate />} />
-          <Route path="/tax-law" element={<TaxLaw />} />
-          <Route path="/international-law" element={<InternationalLaw />} />
-          <Route path="/blog" element={<Blog/>} />
+          <Route path="/training" element={<Training />} />
+          <Route path="/cleanwater" element={<CleanWater />} />
+          <Route path="/emergency-relief" element={<EmergencyRelief />} />
+          <Route path="/child-protection" element={<ChildProtection />} />
+          <Route path="/blog" element={<Blog />} />
           <Route path="/blog1" element={<Blog1 />} />
           <Route path="/blog2" element={<Blog2 />} />
           <Route path="/blog3" element={<Blog3 />} />

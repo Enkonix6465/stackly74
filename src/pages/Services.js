@@ -1,14 +1,14 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import video from "../images/services-law.mp4";
+import video from "../images/vdeo741.mp4";
 import { useNavigate } from "react-router-dom";
 import logo1 from "../images/lo1.jpg"
 import logo2 from "../images/lo2.jpg"
 import logo3 from "../images/lo3.jpg"
 import logo4 from "../images/lo4.jpg"
 import logo5 from "../images/lo5.jpg"
-import logo6 from "../images/lo6.jpg" 
-import logo7 from "../images/lo7.jpg"   
+import logo6 from "../images/lo6.jpg"
+import logo7 from "../images/lo7.jpg"
 import logo8 from "../images/lo8.jpg"
 import logo9 from "../images/lo9.jpg"
 import logo10 from "../images/lo10.jpg"
@@ -163,11 +163,11 @@ const Services = () => {
   const autoPlayRef = useRef(null);
   const [activeBenefit, setActiveBenefit] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
-  
 
 
 
- 
+
+
 
   const variants = {
     enter: (direction) => ({
@@ -197,6 +197,22 @@ const Services = () => {
   }, []);
 
   const t = translations[language] || translations.en;
+
+  // Function to handle service-specific navigation
+  const handleServiceNavigation = (serviceIndex) => {
+    const serviceRoutes = [
+      '/education',      // Education service
+      '/healthcare',     // Healthcare service  
+      '/training',       // Training/Livelihoods service
+      '/cleanwater',     // Clean Water service
+      '/emergency-relief', // Emergency Relief service
+      '/child-protection'  // Child Protection service
+    ];
+    
+    const route = serviceRoutes[serviceIndex] || '/contact';
+    navigate(route);
+  };
+
   const partnershipTypes = [
     {
       id: 1,
@@ -434,10 +450,9 @@ const Services = () => {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <div className={`relative bg-white dark:bg-black rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 dark:border-gray-700 ${
-                  index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'
-                } flex flex-col lg:flex-row`}>
-                  
+                <div className={`relative bg-white dark:bg-black rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 dark:border-gray-700 ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'
+                  } flex flex-col lg:flex-row`}>
+
                   {/* Image Container */}
                   <div className="lg:w-1/2 relative overflow-hidden">
                     <img
@@ -454,7 +469,7 @@ const Services = () => {
                     <h3 className="text-2xl font-bold text-black dark:text-white mb-4 leading-tight">
                       {service.title}
                     </h3>
-                    
+
                     <p className="text-gray-600 dark:text-gray-300 text-lg leading-relaxed mb-6">
                       {service.desc}
                     </p>
@@ -464,13 +479,13 @@ const Services = () => {
                       style={{ backgroundColor: '#4B80B3' }}
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
-                      onClick={() => navigate('/contact')}
+                      onClick={() => handleServiceNavigation(index)}
                     >
                       Learn More
-                      <svg 
-                        className="ml-2 w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" 
-                        fill="none" 
-                        stroke="currentColor" 
+                      <svg
+                        className="ml-2 w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"
+                        fill="none"
+                        stroke="currentColor"
                         viewBox="0 0 24 24"
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -489,10 +504,10 @@ const Services = () => {
             ))}
           </div>
 
-         
+
         </div>
       </section>
-     
+
 
 
 
@@ -584,87 +599,87 @@ const Services = () => {
           </div>
         </div>
       </section>
-       <section className="py-16 bg-white relative overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-0 left-0 w-full h-full" style={{ backgroundColor: '#4B80B3' }}></div>
-      </div>
-
-      <div className="relative z-10 container mx-auto px-6">
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-12"
-        >
-          <span className="font-semibold text-lg mb-4 block" style={{ color: '#4B80B3' }}>TRUSTED BY</span>
-          <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">
-            Our <span style={{ color: '#4B80B3' }}>Valued Partners</span>
-          </h2>
-          <p className="text-black/70 max-w-2xl mx-auto">
-            Together with these incredible organizations, we're creating lasting change and building stronger communities.
-          </p>
-        </motion.div>
-
-        {/* Scrolling Logos - Version 1: Infinite Horizontal Scroll */}
-        <div className="mb-12">
-          <div 
-            className="relative"
-            onMouseEnter={() => setIsPaused(true)}
-            onMouseLeave={() => setIsPaused(false)}
-          >
-            <motion.div
-              className="flex gap-8"
-              animate={{
-                x: [0, -1920] // Adjust based on total width
-              }}
-              transition={{
-                x: {
-                  repeat: Infinity,
-                  repeatType: "loop",
-                  duration: 40,
-                  ease: "linear",
-                },
-              }}
-              style={{ animationPlayState: isPaused ? 'paused' : 'running' }}
-            >
-              {duplicatedPartners.map((partner, index) => (
-                <motion.div
-                  key={`${partner.id}-${index}`}
-                  whileHover={{ scale: 1.1, y: -5 }}
-                  className="flex-shrink-0 w-32 h-24 bg-white rounded-xl shadow-lg hover:shadow-2xl border border-gray-200 overflow-hidden cursor-pointer transition-all duration-300 group"
-                >
-                  <div className="w-full h-full group-hover:scale-110 transition-transform duration-300 flex items-center justify-center">
-                    {partner.isImage ? (
-                      <img 
-                        src={partner.logo} 
-                        alt={partner.name}
-                        className="w-full h-full object-cover"
-                      />
-                    ) : (
-                      <div className="text-5xl">
-                        {partner.logo}
-                      </div>
-                    )}
-                  </div>
-                </motion.div>
-              ))}
-            </motion.div>
-
-            {/* Gradient Fades */}
-            <div className="absolute left-0 top-0 w-20 h-full bg-gradient-to-r from-white to-transparent z-10"></div>
-            <div className="absolute right-0 top-0 w-20 h-full bg-gradient-to-l from-white to-transparent z-10"></div>
-          </div>
+      <section className="py-16 bg-white relative overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute top-0 left-0 w-full h-full" style={{ backgroundColor: '#4B80B3' }}></div>
         </div>
 
-        
+        <div className="relative z-10 container mx-auto px-6">
+          {/* Header */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <span className="font-semibold text-lg mb-4 block" style={{ color: '#4B80B3' }}>TRUSTED BY</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">
+              Our <span style={{ color: '#4B80B3' }}>Valued Partners</span>
+            </h2>
+            <p className="text-black/70 max-w-2xl mx-auto">
+              Together with these incredible organizations, we're creating lasting change and building stronger communities.
+            </p>
+          </motion.div>
 
-        
+          {/* Scrolling Logos - Version 1: Infinite Horizontal Scroll */}
+          <div className="mb-12">
+            <div
+              className="relative"
+              onMouseEnter={() => setIsPaused(true)}
+              onMouseLeave={() => setIsPaused(false)}
+            >
+              <motion.div
+                className="flex gap-8"
+                animate={{
+                  x: [0, -1920] // Adjust based on total width
+                }}
+                transition={{
+                  x: {
+                    repeat: Infinity,
+                    repeatType: "loop",
+                    duration: 40,
+                    ease: "linear",
+                  },
+                }}
+                style={{ animationPlayState: isPaused ? 'paused' : 'running' }}
+              >
+                {duplicatedPartners.map((partner, index) => (
+                  <motion.div
+                    key={`${partner.id}-${index}`}
+                    whileHover={{ scale: 1.1, y: -5 }}
+                    className="flex-shrink-0 w-32 h-24 bg-white rounded-xl shadow-lg hover:shadow-2xl border border-gray-200 overflow-hidden cursor-pointer transition-all duration-300 group"
+                  >
+                    <div className="w-full h-full group-hover:scale-110 transition-transform duration-300 flex items-center justify-center">
+                      {partner.isImage ? (
+                        <img
+                          src={partner.logo}
+                          alt={partner.name}
+                          className="w-full h-full object-cover"
+                        />
+                      ) : (
+                        <div className="text-5xl">
+                          {partner.logo}
+                        </div>
+                      )}
+                    </div>
+                  </motion.div>
+                ))}
+              </motion.div>
 
-       
-      </div>
-    </section>
+              {/* Gradient Fades */}
+              <div className="absolute left-0 top-0 w-20 h-full bg-gradient-to-r from-white to-transparent z-10"></div>
+              <div className="absolute right-0 top-0 w-20 h-full bg-gradient-to-l from-white to-transparent z-10"></div>
+            </div>
+          </div>
+
+
+
+
+
+
+        </div>
+      </section>
       {/* CTA Section */}
       <section className="w-full py-20 flex items-center justify-center bg-black">
         <div className="w-full max-w-3xl mx-auto flex flex-col items-center justify-center text-center px-6">

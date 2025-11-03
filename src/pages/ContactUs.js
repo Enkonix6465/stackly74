@@ -175,7 +175,7 @@ function ContactUs() {
   }, []);
 
   return (
-    <div className="w-full min-h-screen bg-white dark:bg-black">
+  <div className="w-full min-h-screen bg-white dark:bg-black">
       {/* Hero Section */}
       <section className="relative w-full h-screen flex items-center justify-center overflow-hidden mt-0">
         <video
@@ -185,7 +185,7 @@ function ContactUs() {
           loop
           muted
         />
-        <div className="absolute inset-0 bg-black/70 flex flex-col items-center justify-center z-10 h-full">
+        <div className="absolute inset-0 bg-black/80 flex flex-col items-center justify-center z-10 h-full">
           <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-6 drop-shadow-lg text-center">
             {t.heroTitle}
           </h1>
@@ -196,8 +196,8 @@ function ContactUs() {
       </section>
       {/* End Hero Section */}
       <section className="w-full py-20 px-4 bg-white dark:bg-black flex items-center justify-center">
-        <div className="max-w-3xl w-full bg-white dark:bg-black rounded-2xl shadow-xl p-8 border border-[#25be85] dark:border-[#25be85]">
-          <h2 className="text-4xl font-bold text-[#25be85] mb-6 text-center">
+        <div className="max-w-3xl w-full bg-white dark:bg-black rounded-2xl shadow-xl p-8 border border-[#4B80B3] dark:border-[#4B80B3]">
+          <h2 className="text-4xl font-bold text-[#4B80B3] mb-6 text-center">
             {t.formTitle}
           </h2>
           <form className="space-y-6">
@@ -212,7 +212,7 @@ function ContactUs() {
                 type="text"
                 id="name"
                 name="name"
-                className="w-full px-4 py-2 rounded-lg border border-[#25be85] bg-gray-50 dark:bg-gray-900 text-black dark:text-white focus:outline-none focus:ring-2 focus:ring-[#25be85]"
+                className="w-full px-4 py-2 rounded-lg border border-[#4B80B3] bg-white dark:bg-black text-black dark:text-white focus:outline-none focus:ring-2 focus:ring-[#4B80B3]"
                 required
               />
             </div>
@@ -227,7 +227,7 @@ function ContactUs() {
                 type="email"
                 id="email"
                 name="email"
-                className="w-full px-4 py-2 rounded-lg border border-[#25be85] bg-gray-50 dark:bg-gray-900 text-black dark:text-white focus:outline-none focus:ring-2 focus:ring-[#25be85]"
+                className="w-full px-4 py-2 rounded-lg border border-[#4B80B3] bg-white dark:bg-black text-black dark:text-white focus:outline-none focus:ring-2 focus:ring-[#4B80B3]"
                 required
               />
             </div>
@@ -242,7 +242,7 @@ function ContactUs() {
                 type="tel"
                 id="phone"
                 name="phone"
-                className="w-full px-4 py-2 rounded-lg border border-[#25be85] bg-gray-50 dark:bg-gray-900 text-black dark:text-white focus:outline-none focus:ring-2 focus:ring-[#25be85]"
+                className="w-full px-4 py-2 rounded-lg border border-[#4B80B3] bg-white dark:bg-black text-black dark:text-white focus:outline-none focus:ring-2 focus:ring-[#4B80B3]"
               />
             </div>
             <div>
@@ -256,7 +256,7 @@ function ContactUs() {
                 type="text"
                 id="company"
                 name="company"
-                className="w-full px-4 py-2 rounded-lg border border-[#25be85] bg-gray-50 dark:bg-gray-900 text-black dark:text-white focus:outline-none focus:ring-2 focus:ring-[#25be85]"
+                className="w-full px-4 py-2 rounded-lg border border-[#4B80B3] bg-white dark:bg-black text-black dark:text-white focus:outline-none focus:ring-2 focus:ring-[#4B80B3]"
               />
             </div>
             <div>
@@ -270,7 +270,7 @@ function ContactUs() {
                 type="text"
                 id="subject"
                 name="subject"
-                className="w-full px-4 py-2 rounded-lg border border-[#25be85] bg-gray-50 dark:bg-gray-900 text-black dark:text-white focus:outline-none focus:ring-2 focus:ring-[#25be85]"
+                className="w-full px-4 py-2 rounded-lg border border-[#4B80B3] bg-white dark:bg-black text-black dark:text-white focus:outline-none focus:ring-2 focus:ring-[#4B80B3]"
               />
             </div>
             <div>
@@ -284,13 +284,13 @@ function ContactUs() {
                 id="message"
                 name="message"
                 rows="5"
-                className="w-full px-4 py-2 rounded-lg border border-[#25be85] bg-gray-50 dark:bg-gray-900 text-black dark:text-white focus:outline-none focus:ring-2 focus:ring-[#25be85]"
+                className="w-full px-4 py-2 rounded-lg border border-[#4B80B3] bg-white dark:bg-black text-black dark:text-white focus:outline-none focus:ring-2 focus:ring-[#4B80B3]"
                 required
               ></textarea>
             </div>
             <button
               type="submit"
-              className="w-full py-3 bg-[#25be85] text-white font-bold rounded-lg shadow hover:bg-black transition-all text-lg"
+              className="w-full py-3 bg-[#4B80B3] text-white font-bold rounded-lg shadow hover:bg-black transition-all text-lg"
             >
               {t.send}
             </button>
@@ -299,43 +299,43 @@ function ContactUs() {
       </section>
       <section className="w-full py-5 px-4 bg-gradient-to-b from-white to-[#25be85]/10 dark:from-black dark:to-[#25be85]/30">
         <div className="w-full">
-          <h2 className="text-4xl font-bold text-[#25be85] mb-8 text-center">
+          <h2 className="text-4xl font-bold text-[#4B80B3] mb-8 text-center">
             {t.contactInfo}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
-            <div className="bg-[#25be85] dark:bg-black rounded-2xl shadow-xl p-8 flex flex-col items-center border border-[#25be85] dark:border-[#25be85]">
-              <i className="fas fa-phone text-3xl text-white dark:text-[#25be85] mb-3"></i>
-              <h3 className="text-lg font-semibold mb-1 text-white dark:text-[#25be85]">
+            <div className="bg-[#4B80B3] dark:bg-black rounded-2xl shadow-xl p-8 flex flex-col items-center border border-[#4B80B3] dark:border-[#4B80B3]">
+              <i className="fas fa-phone text-3xl text-white dark:text-[#4B80B3] mb-3"></i>
+              <h3 className="text-lg font-semibold mb-1 text-white dark:text-[#4B80B3]">
                 {t.phoneLabel}
               </h3>
-              <p className="text-white dark:text-[#25be85] mb-1">
+              <p className="text-white dark:text-[#4B80B3] mb-1">
                 {t.phoneValue}
               </p>
-              <span className="text-sm text-white dark:text-[#25be85]">
+              <span className="text-sm text-white dark:text-[#4B80B3]">
                 {t.phoneTime}
               </span>
             </div>
-            <div className="bg-[#25be85] dark:bg-black rounded-2xl shadow-xl p-8 flex flex-col items-center border border-[#25be85] dark:border-[#25be85]">
-              <i className="fas fa-envelope text-3xl text-white dark:text-[#25be85] mb-3"></i>
-              <h3 className="text-lg font-semibold mb-1 text-white dark:text-[#25be85]">
+            <div className="bg-[#4B80B3] dark:bg-black rounded-2xl shadow-xl p-8 flex flex-col items-center border border-[#4B80B3] dark:border-[#4B80B3]">
+              <i className="fas fa-envelope text-3xl text-white dark:text-[#4B80B3] mb-3"></i>
+              <h3 className="text-lg font-semibold mb-1 text-white dark:text-[#4B80B3]">
                 {t.emailLabel}
               </h3>
-              <p className="text-white dark:text-[#25be85] mb-1">
+              <p className="text-white dark:text-[#4B80B3] mb-1">
                 {t.emailValue}
               </p>
-              <span className="text-sm text-white dark:text-[#25be85]">
+              <span className="text-sm text-white dark:text-[#4B80B3]">
                 {t.emailTime}
               </span>
             </div>
-            <div className="bg-[#25be85] dark:bg-black rounded-2xl shadow-xl p-8 flex flex-col items-center border border-[#25be85] dark:border-[#25be85]">
-              <i className="fas fa-map-marker-alt text-3xl text-white dark:text-[#25be85] mb-3"></i>
-              <h3 className="text-lg font-semibold mb-1 text-white dark:text-[#25be85]">
+            <div className="bg-[#4B80B3] dark:bg-black rounded-2xl shadow-xl p-8 flex flex-col items-center border border-[#4B80B3] dark:border-[#4B80B3]">
+              <i className="fas fa-map-marker-alt text-3xl text-white dark:text-[#4B80B3] mb-3"></i>
+              <h3 className="text-lg font-semibold mb-1 text-white dark:text-[#4B80B3]">
                 {t.locationLabel}
               </h3>
-              <p className="text-white dark:text-[#25be85] mb-1">
+              <p className="text-white dark:text-[#4B80B3] mb-1">
                 {t.locationValue}
               </p>
-              <span className="text-sm text-white dark:text-[#25be85]">
+              <span className="text-sm text-white dark:text-[#4B80B3]">
                 {t.locationTime}
               </span>
             </div>
@@ -345,14 +345,14 @@ function ContactUs() {
       
       <section className="w-full py-16 px-0 bg-white dark:bg-black">
         <div className="w-full">
-          <h2 className="text-4xl font-bold text-[#25be85] mb-8 text-center">
+          <h2 className="text-4xl font-bold text-[#4B80B3] mb-8 text-center">
             {t.mapTitle}
           </h2>
           <div className="rounded-2xl overflow-hidden shadow-xl border border-[#25be85] dark:border-[#25be85] w-full">
             <img
               src={map}
               alt="Company Location Map"
-              className="w-full h-[280px] object-cover rounded-2xl shadow-xl border border-[#25be85] dark:border-[#25be85]"
+              className="w-full h-[280px] object-cover rounded-2xl shadow-xl border border-[#4B80B3] dark:border-[#4B80B3]"
             />
           </div>
         </div>

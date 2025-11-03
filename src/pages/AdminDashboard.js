@@ -287,8 +287,8 @@ const barData = {
     {
       label: 'Logins',
       data: Object.values(loginData),
-      backgroundColor: 'rgba(37,190,133,0.7)',
-      borderColor: '#25be85',
+      backgroundColor: 'rgba(75,128,179,0.7)',
+      borderColor: '#4B80B3',
       borderWidth: 2,
       borderRadius: 8,
       maxBarThickness: 40,
@@ -304,11 +304,11 @@ const barOptions = {
     title: {
       display: true,
       text: 'Daily Login Statistics',
-      color: '#25be85',
+      color: '#4B80B3',
       font: { size: 20, weight: 'bold' }
     },
     tooltip: {
-      backgroundColor: '#25be85',
+      backgroundColor: '#4B80B3',
       titleColor: '#fff',
       bodyColor: '#fff',
       borderColor: '#fff',
@@ -334,7 +334,7 @@ const pieData = {
   datasets: [
     {
       data: [userStatus.active, userStatus.inactive],
-      backgroundColor: ['#7c83f6', '#25be85'],
+      backgroundColor: ['#4B80B3', '#000'],
       borderColor: ['#fff', '#fff'],
       borderWidth: 3,
       hoverOffset: 12,
@@ -354,11 +354,11 @@ const pieOptions = {
     title: {
       display: true,
       text: 'User Status',
-      color: '#25be85',
+      color: '#4B80B3',
       font: { size: 20, weight: 'bold' }
     },
     tooltip: {
-      backgroundColor: '#25be85',
+      backgroundColor: '#4B80B3',
       titleColor: '#fff',
       bodyColor: '#fff',
       borderColor: '#fff',
@@ -369,15 +369,15 @@ const pieOptions = {
 
   // Add dark mode classes to main container and tables
   return (
-    <div className={`w-full min-h-screen p-8 pt-24 transition-colors duration-300 dark:bg-black dark:text-white`}>
+    <div className={`w-full min-h-screen p-8 pt-24 transition-colors duration-300 bg-white text-black dark:bg-black dark:text-white`}>
       <div className="w-full mb-10">
-        <h1 className="text-4xl font-extrabold text-[#25be85] text-center mb-6 drop-shadow-lg">
+        <h1 className="text-4xl font-extrabold text-[#4B80B3] text-center mb-6 drop-shadow-lg">
           Admin Dashboard
         </h1>
         
         {/* Add validation info */}
         <div className="text-center mb-4">
-          <p className="text-sm text-gray-600 dark:text-gray-400">
+          <p className="text-sm text-black dark:text-white">
             Total Users: {JSON.parse(localStorage.getItem("users") || "[]").length} | 
             Total Logins: {Object.keys(JSON.parse(localStorage.getItem("userLogins") || "{}")).length}
           </p>
@@ -388,9 +388,9 @@ const pieOptions = {
       <section className="w-full mb-10">
         <h2 className="text-2xl font-bold mb-4">User Logins</h2>
         <div className="overflow-x-auto">
-          <table className={`w-full rounded-lg shadow text-left ${isDark ? "bg-gray-800 text-white" : "bg-white text-black"}`}>
+          <table className={`w-full rounded-lg shadow text-left ${isDark ? "bg-black text-white" : "bg-white text-black"}`}>
             <thead>
-              <tr className={`${isDark ? "bg-gray-700 text-white" : "bg-black text-white"}`}>
+              <tr className={`${isDark ? "bg-black text-white" : "bg-black text-white"}`}>
                 <th className="py-3 px-4 font-semibold text-left">Username</th>
                 <th className="py-3 px-4 font-semibold text-left">Email</th>
                 <th className="py-3 px-4 font-semibold text-left">Login Time</th>
@@ -400,7 +400,7 @@ const pieOptions = {
               {logins.length === 0 ? (
                 <tr>
                   <td colSpan={3} className="py-4 px-4 text-center">
-                    <div className="text-gray-500">
+                    <div className="text-black">
                       <p>No login data available.</p>
                       <p className="text-sm mt-2">Login to create sample data or check localStorage.</p>
                     </div>
@@ -408,7 +408,7 @@ const pieOptions = {
                 </tr>
               ) : (
                 logins.map((row, idx) => (
-                  <tr key={idx} className={`border-b last:border-none ${isDark ? "border-gray-700" : "border-gray-200"}`}>
+                  <tr key={idx} className={`border-b last:border-none ${isDark ? "border-black" : "border-gray-200"}`}>
                     <td className="py-3 px-4">{row.username}</td>
                     <td className="py-3 px-4">{row.email}</td>
                     <td className="py-3 px-4">{row.loginTime}</td>
@@ -424,12 +424,12 @@ const pieOptions = {
       <section className="w-full mb-10 dark:bg-black dark:text-white">
         <h2 className="text-2xl font-bold mb-4">User Statistics</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className={`rounded-lg shadow p-6 flex flex-col items-center ${isDark ? "bg-gray-800 text-white border border-gray-600" : "bg-white text-black border border-black"}`}>
-            <span className="text-4xl font-bold text-[#25be85]">{stats.totalUsers}</span>
+          <div className={`rounded-lg shadow p-6 flex flex-col items-center ${isDark ? "bg-black text-white border border-black" : "bg-white text-black border border-black"}`}>
+            <span className="text-4xl font-bold text-[#4B80B3]">{stats.totalUsers}</span>
             <span className="mt-2 text-lg">{isDark ? <span className="text-white">Total Users</span> : "Total Users"}</span>
           </div>
-          <div className={`rounded-lg shadow p-6 flex flex-col items-center ${isDark ? "bg-gray-800 text-white border border-gray-600" : "bg-white text-black border border-black"}`}>
-            <span className="text-4xl font-bold text-[#25be85]">{stats.loginsToday}</span>
+          <div className={`rounded-lg shadow p-6 flex flex-col items-center ${isDark ? "bg-black text-white border border-black" : "bg-white text-black border border-black"}`}>
+            <span className="text-4xl font-bold text-[#4B80B3]">{stats.loginsToday}</span>
             <span className="mt-2 text-lg">{isDark ? <span className="text-white">Logins Today</span> : "Logins Today"}</span>
           </div>
         </div>
@@ -439,9 +439,9 @@ const pieOptions = {
       <section className="w-full mb-10 dark:bg-black dark:text-white">
         <h2 className="text-2xl font-bold mb-4">Recent Logins</h2>
         <div className="overflow-x-auto">
-          <table className={`w-full rounded-lg shadow text-left ${isDark ? "bg-gray-800 text-white" : "bg-white text-black"}`}>
+          <table className={`w-full rounded-lg shadow text-left ${isDark ? "bg-black text-white" : "bg-white text-black"}`}>
             <thead>
-              <tr className={`${isDark ? "bg-gray-700 text-white" : "bg-black text-white"}`}>
+              <tr className={`${isDark ? "bg-black text-white" : "bg-black text-white"}`}>
                 <th className="py-3 px-4 font-semibold text-left">Username</th>
                 <th className="py-3 px-4 font-semibold text-left">Email</th>
                 <th className="py-3 px-4 font-semibold text-left">Login Time</th>
@@ -454,7 +454,7 @@ const pieOptions = {
                 </tr>
               ) : (
                 recentLogins.map((row, idx) => (
-                  <tr key={idx} className={`border-b last:border-none ${isDark ? "border-gray-700" : "border-gray-200"}`}>
+                  <tr key={idx} className={`border-b last:border-none ${isDark ? "border-black" : "border-gray-200"}`}>
                     <td className="py-3 px-4">{row.username}</td>
                     <td className="py-3 px-4">{row.email}</td>
                     <td className="py-3 px-4">{row.loginTime}</td>
@@ -470,9 +470,9 @@ const pieOptions = {
       <section className="w-full mb-10 dark:bg-black dark:text-white">
         <h2 className="text-2xl font-bold mb-4">Most Active Users</h2>
         <div className="overflow-x-auto">
-          <table className={`w-full rounded-lg shadow text-left ${isDark ? "bg-gray-800 text-white" : "bg-white text-black"}`}>
+          <table className={`w-full rounded-lg shadow text-left ${isDark ? "bg-black text-white" : "bg-white text-black"}`}>
             <thead>
-              <tr className={`${isDark ? "bg-gray-700 text-white" : "bg-black text-white"}`}>
+              <tr className={`${isDark ? "bg-black text-white" : "bg-black text-white"}`}>
                 <th className="py-3 px-4 font-semibold text-left">Username</th>
                 <th className="py-3 px-4 font-semibold text-left">Email</th>
                 <th className="py-3 px-4 font-semibold text-left">Login Count</th>
@@ -485,7 +485,7 @@ const pieOptions = {
                 </tr>
               ) : (
                 mostActiveUsers.map((row, idx) => (
-                  <tr key={idx} className={`border-b last:border-none ${isDark ? "border-gray-700" : "border-gray-200"}`}>
+                  <tr key={idx} className={`border-b last:border-none ${isDark ? "border-black" : "border-gray-200"}`}>
                     <td className="py-3 px-4">{row.username}</td>
                     <td className="py-3 px-4">{row.email}</td>
                     <td className="py-3 px-4">{row.count}</td>

@@ -73,7 +73,120 @@ const translations = {
 				description: "Sustainable programs build stronger communities",
 				icon: "🌱"
 			}
-		]
+		],
+
+		// Donation options
+		donationOptions: [
+			{
+				id: 1,
+				title: 'Essential Support',
+				amount: 25,
+				description: 'Perfect for starting your giving journey',
+				impact: [
+					'Provides 10 nutritious meals',
+					'Clean water for 1 person for a month',
+					'School supplies for 2 children'
+				],
+				popular: false,
+				color: 'from-gray-200 to-gray-300'
+			},
+			{
+				id: 2,
+				title: 'Impact Maker',
+				amount: 50,
+				description: 'Make a significant difference in communities',
+				impact: [
+					'Medical care for 5 children',
+					'Plant 25 trees in deforested areas',
+					'Support a family for 2 weeks'
+				],
+				popular: true,
+				color: 'from-blue-400 to-blue-500'
+			},
+			{
+				id: 3,
+				title: 'Change Champion',
+				amount: 100,
+				description: 'Transform lives with substantial impact',
+				impact: [
+					'Build a clean water well section',
+					'Fund education for 1 child for a year',
+					'Provide healthcare for an entire village'
+				],
+				popular: false,
+				color: 'from-gray-700 to-gray-800'
+			}
+		],
+
+		// Gallery categories
+		categories: [
+			{ id: 'all', name: 'All Photos', count: 24 },
+			{ id: 'education', name: 'Education', count: 8 },
+			{ id: 'health', name: 'Healthcare', count: 6 },
+			{ id: 'water', name: 'Clean Water', count: 5 },
+			{ id: 'community', name: 'Community', count: 5 }
+		],
+
+		// Gallery items
+		galleryItems: [
+			{
+				id: 1,
+				category: 'education',
+				title: 'New School Opening',
+				location: 'Rural Kenya',
+				description: 'Children celebrating their first day at our newly built primary school',
+				impact: '250+ students now have access to quality education',
+				date: 'March 15, 2024'
+			},
+			{
+				id: 2,
+				category: 'water',
+				title: 'Clean Water Access',
+				location: 'Uganda Village',
+				description: 'Community members gathering at the new water well',
+				impact: '500 people now have clean drinking water',
+				date: 'February 28, 2024'
+			},
+			{
+				id: 3,
+				category: 'health',
+				title: 'Mobile Medical Camp',
+				location: 'Remote India',
+				description: 'Doctors providing free healthcare services to villagers',
+				impact: '1,200 patients treated in one week',
+				date: 'April 2, 2024'
+			},
+			{
+				id: 4,
+				category: 'education',
+				title: 'Digital Learning',
+				location: 'Bangladesh',
+				description: 'Students using tablets for interactive learning',
+				impact: 'Digital literacy for 800+ children',
+				date: 'January 20, 2024'
+			},
+			{
+				id: 5,
+				category: 'community',
+				title: 'Community Training',
+				location: 'Philippines',
+				description: 'Sustainable agriculture workshop for local farmers',
+				impact: '150 families trained in modern farming techniques',
+				date: 'March 8, 2024'
+			},
+			{
+				id: 6,
+				category: 'health',
+				title: 'Vaccination Drive',
+				location: 'Nigeria',
+				description: 'Children receiving life-saving vaccinations',
+				impact: '3,000 children vaccinated against preventable diseases',
+				date: 'February 14, 2024'
+			}
+		],
+
+		// Common labels
+		viewStoryLabel: 'View Story'
 	},
 	ar: {
 		heroTitle: "بناء الأمل وتغيير الحياة معًا",
@@ -138,7 +251,120 @@ const translations = {
 				description: "البرامج المستدامة تبني مجتمعات أقوى",
 				icon: "🌱"
 			}
-		]
+		],
+
+		// Donation options
+		donationOptions: [
+			{
+				id: 1,
+				title: 'الدعم الأساسي',
+				amount: 25,
+				description: 'مثالي لبدء رحلة العطاء الخاصة بك',
+				impact: [
+					'يوفر 10 وجبات مغذية',
+					'مياه نظيفة لشخص واحد لمدة شهر',
+					'لوازم مدرسية لطفلين'
+				],
+				popular: false,
+				color: 'from-gray-200 to-gray-300'
+			},
+			{
+				id: 2,
+				title: 'صانع التأثير',
+				amount: 50,
+				description: 'اصنع فرقاً كبيراً في المجتمعات',
+				impact: [
+					'رعاية طبية لـ 5 أطفال',
+					'زراعة 25 شجرة في المناطق المتصحرة',
+					'دعم أسرة لمدة أسبوعين'
+				],
+				popular: true,
+				color: 'from-blue-400 to-blue-500'
+			},
+			{
+				id: 3,
+				title: 'بطل التغيير',
+				amount: 100,
+				description: 'غيّر الحياة بتأثير كبير',
+				impact: [
+					'بناء قسم من بئر مياه نظيفة',
+					'تمويل تعليم طفل واحد لمدة سنة',
+					'توفير الرعاية الصحية لقرية بأكملها'
+				],
+				popular: false,
+				color: 'from-gray-700 to-gray-800'
+			}
+		],
+
+		// Gallery categories
+		categories: [
+			{ id: 'all', name: 'جميع الصور', count: 24 },
+			{ id: 'education', name: 'التعليم', count: 8 },
+			{ id: 'health', name: 'الرعاية الصحية', count: 6 },
+			{ id: 'water', name: 'المياه النظيفة', count: 5 },
+			{ id: 'community', name: 'المجتمع', count: 5 }
+		],
+
+		// Gallery items
+		galleryItems: [
+			{
+				id: 1,
+				category: 'education',
+				title: 'افتتاح مدرسة جديدة',
+				location: 'ريف كينيا',
+				description: 'الأطفال يحتفلون بيومهم الأول في مدرستنا الابتدائية المبنية حديثاً',
+				impact: '250+ طالب لديهم الآن إمكانية الوصول للتعليم الجيد',
+				date: '15 مارس 2024'
+			},
+			{
+				id: 2,
+				category: 'water',
+				title: 'الوصول للمياه النظيفة',
+				location: 'قرية أوغندا',
+				description: 'أفراد المجتمع يتجمعون عند بئر المياه الجديد',
+				impact: '500 شخص لديهم الآن مياه شرب نظيفة',
+				date: '28 فبراير 2024'
+			},
+			{
+				id: 3,
+				category: 'health',
+				title: 'مخيم طبي متنقل',
+				location: 'الهند النائية',
+				description: 'أطباء يقدمون خدمات رعاية صحية مجانية للقرويين',
+				impact: '1,200 مريض تم علاجهم في أسبوع واحد',
+				date: '2 أبريل 2024'
+			},
+			{
+				id: 4,
+				category: 'education',
+				title: 'التعلم الرقمي',
+				location: 'بنغلاديش',
+				description: 'طلاب يستخدمون الأجهزة اللوحية للتعلم التفاعلي',
+				impact: 'محو الأمية الرقمية لأكثر من 800 طفل',
+				date: '20 يناير 2024'
+			},
+			{
+				id: 5,
+				category: 'community',
+				title: 'التدريب المجتمعي',
+				location: 'الفلبين',
+				description: 'ورشة عمل الزراعة المستدامة للمزارعين المحليين',
+				impact: '150 عائلة تدربت على تقنيات الزراعة الحديثة',
+				date: '8 مارس 2024'
+			},
+			{
+				id: 6,
+				category: 'health',
+				title: 'حملة التطعيم',
+				location: 'نيجيريا',
+				description: 'أطفال يتلقون التطعيمات المنقذة للحياة',
+				impact: '3,000 طفل تم تطعيمهم ضد الأمراض القابلة للوقاية',
+				date: '14 فبراير 2024'
+			}
+		],
+
+		// Common labels
+		viewStoryLabel: 'عرض القصة'
 	},
 	he: {
 		heroTitle: "בונים תקווה, משנים חיים יחד",
@@ -203,7 +429,120 @@ const translations = {
 				description: "תוכניות בנות קיימא בונות קהילות חזקות יותר",
 				icon: "🌱"
 			}
-		]
+		],
+
+		// Donation options
+		donationOptions: [
+			{
+				id: 1,
+				title: 'תמיכה בסיסית',
+				amount: 25,
+				description: 'מושלם להתחלת מסע הנתינה שלכם',
+				impact: [
+					'מספק 10 ארוחות מזינות',
+					'מים נקיים לאדם אחד למשך חודש',
+					'ציוד לבית ספר ל-2 ילדים'
+				],
+				popular: false,
+				color: 'from-gray-200 to-gray-300'
+			},
+			{
+				id: 2,
+				title: 'יוצר השפעה',
+				amount: 50,
+				description: 'עשו הבדל משמעותי בקהילות',
+				impact: [
+					'טיפול רפואי ל-5 ילדים',
+					'נטיעת 25 עצים באזורים מכוערים',
+					'תמיכה במשפחה למשך שבועיים'
+				],
+				popular: true,
+				color: 'from-blue-400 to-blue-500'
+			},
+			{
+				id: 3,
+				title: 'אלוף השינוי',
+				amount: 100,
+				description: 'שנו חיים עם השפעה משמעותית',
+				impact: [
+					'בנו חלק מבאר מים נקיים',
+					'מימון חינוך לילד אחד למשך שנה',
+					'מתן שירותי בריאות לכפר שלם'
+				],
+				popular: false,
+				color: 'from-gray-700 to-gray-800'
+			}
+		],
+
+		// Gallery categories
+		categories: [
+			{ id: 'all', name: 'כל התמונות', count: 24 },
+			{ id: 'education', name: 'חינוך', count: 8 },
+			{ id: 'health', name: 'שירותי בריאות', count: 6 },
+			{ id: 'water', name: 'מים נקיים', count: 5 },
+			{ id: 'community', name: 'קהילה', count: 5 }
+		],
+
+		// Gallery items
+		galleryItems: [
+			{
+				id: 1,
+				category: 'education',
+				title: 'פתיחת בית ספר חדש',
+				location: 'כפר קניה',
+				description: 'ילדים חוגגים את היום הראשון שלהם בבית הספר היסודי החדש שלנו',
+				impact: '250+ תלמידים יש להם כעת גישה לחינוך איכותי',
+				date: '15 במרץ 2024'
+			},
+			{
+				id: 2,
+				category: 'water',
+				title: 'גישה למים נקיים',
+				location: 'כפר אוגנדה',
+				description: 'חברי הקהילה מתאספים ליד באר המים החדש',
+				impact: '500 אנשים יש להם כעת מי שתייה נקיים',
+				date: '28 בפברואר 2024'
+			},
+			{
+				id: 3,
+				category: 'health',
+				title: 'מחנה רפואי נייד',
+				location: 'הודו מרוחקת',
+				description: 'רופאים מספקים שירותי בריאות חינמיים לכפריים',
+				impact: '1,200 מטופלים טופלו בשבוע אחד',
+				date: '2 באפריל 2024'
+			},
+			{
+				id: 4,
+				category: 'education',
+				title: 'למידה דיגיטלית',
+				location: 'בנגלדש',
+				description: 'תלמידים משתמשים בטאבלטים ללמידה אינטראקטיבית',
+				impact: 'אוריינות דיגיטלית ל-800+ ילדים',
+				date: '20 בינואר 2024'
+			},
+			{
+				id: 5,
+				category: 'community',
+				title: 'הכשרה קהילתית',
+				location: 'פיליפינים',
+				description: 'סדנת חקלאות בת-קיימא לחקלאים מקומיים',
+				impact: '150 משפחות הוכשרו בטכניקות חקלאות מודרניות',
+				date: '8 במרץ 2024'
+			},
+			{
+				id: 6,
+				category: 'health',
+				title: 'מבצע חיסונים',
+				location: 'ניגריה',
+				description: 'ילדים מקבלים חיסונים מצילי חיים',
+				impact: '3,000 ילדים חוסנו נגד מחלות הניתנות למניעה',
+				date: '14 בפברואר 2024'
+			}
+		],
+
+		// Common labels
+		viewStoryLabel: 'צפה בסיפור'
 	}
 };
 
@@ -225,124 +564,25 @@ const Home2 = () => {
 	const [customAmount, setCustomAmount] = useState('');
 	const [isCustomActive, setIsCustomActive] = useState(false);
 
-	const donationOptions = [
-		{
-			id: 1,
-			title: 'Essential Support',
-			amount: 25,
-			description: 'Perfect for starting your giving journey',
-			impact: [
-				'Provides 10 nutritious meals',
-				'Clean water for 1 person for a month',
-				'School supplies for 2 children'
-			],
-			popular: false,
-			color: 'from-gray-200 to-gray-300'
-		},
-		{
-			id: 2,
-			title: 'Impact Maker',
-			amount: 50,
-			description: 'Make a significant difference in communities',
-			impact: [
-				'Medical care for 5 children',
-				'Plant 25 trees in deforested areas',
-				'Support a family for 2 weeks'
-			],
-			popular: true,
-			color: 'from-blue-400 to-blue-500'
-		},
-		{
-			id: 3,
-			title: 'Change Champion',
-			amount: 100,
-			description: 'Transform lives with substantial impact',
-			impact: [
-				'Build a clean water well section',
-				'Fund education for 1 child for a year',
-				'Provide healthcare for an entire village'
-			],
-			popular: false,
-			color: 'from-gray-700 to-gray-800'
-		}
-	];
+	// Use translated data
+	const donationOptions = t.donationOptions;
 	const [activeCategory, setActiveCategory] = useState('all');
 	const [selectedImage, setSelectedImage] = useState(null);
 
-	const categories = [
-		{ id: 'all', name: 'All Photos', count: 24 },
-		{ id: 'education', name: 'Education', count: 8 },
-		{ id: 'health', name: 'Healthcare', count: 6 },
-		{ id: 'water', name: 'Clean Water', count: 5 },
-		{ id: 'community', name: 'Community', count: 5 }
-	];
+	const categories = t.categories;
 
-	const galleryItems = [
-		{
-			id: 1,
-			category: 'education',
-			image: school,
-			title: 'New School Opening',
-			location: 'Rural Kenya',
-			description: 'Children celebrating their first day at our newly built primary school',
-			impact: '250+ students now have access to quality education',
-			date: 'March 15, 2024'
-		},
-		{
-			id: 2,
-			category: 'water',
-			image: water,
-			title: 'Clean Water Access',
-			location: 'Uganda Village',
-			description: 'Community members gathering at the new water well',
-			impact: '500 people now have clean drinking water',
-			date: 'February 28, 2024'
-		},
-		{
-			id: 3,
-			category: 'health',
-			image: medical,
-			title: 'Mobile Medical Camp',
-			location: 'Remote India',
-			description: 'Doctors providing free healthcare services to villagers',
-			impact: '1,200 patients treated in one week',
-			date: 'April 2, 2024'
-		},
-		{
-			id: 4,
-			category: 'education',
-			image: digital,
-			title: 'Digital Learning',
-			location: 'Bangladesh',
-			description: 'Students using tablets for interactive learning',
-			impact: 'Digital literacy for 800+ children',
-			date: 'January 20, 2024'
-		},
-		{
-			id: 5,
-			category: 'community',
-			image: training,
-			title: 'Community Training',
-			location: 'Philippines',
-			description: 'Sustainable agriculture workshop for local farmers',
-			impact: '150 families trained in modern farming techniques',
-			date: 'March 8, 2024'
-		},
-		{
-			id: 6,
-			category: 'health',
-			image: drive,
-			title: 'Vaccination Drive',
-			location: 'Nigeria',
-			description: 'Children receiving life-saving vaccinations',
-			impact: '3,000 children vaccinated against preventable diseases',
-			date: 'February 14, 2024'
-		}
-	];
+	const galleryItems = t.galleryItems;
+
+	// Add images to gallery items
+	const galleryImagesMap = [school, water, medical, digital, training, drive];
+	const galleryItemsWithImages = galleryItems.map((item, index) => ({
+		...item,
+		image: galleryImagesMap[index % galleryImagesMap.length]
+	}));
 
 	const filteredItems = activeCategory === 'all'
-		? galleryItems
-		: galleryItems.filter(item => item.category === activeCategory);
+		? galleryItemsWithImages
+		: galleryItemsWithImages.filter(item => item.category === activeCategory);
 
 	const openModal = (item) => {
 		setSelectedImage(item);
@@ -710,7 +950,7 @@ const Home2 = () => {
 											<div className="flex items-center justify-between mt-4 text-sm text-black dark:text-white">
 												<span>{item.date}</span>
 												<button className="font-semibold transition-colors" style={{ color: '#4B80B3' }}>
-													View Story →
+													{t.viewStoryLabel} →
 												</button>
 											</div>
 										</div>

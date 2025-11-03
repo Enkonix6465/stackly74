@@ -5,6 +5,102 @@ import video from "../images/charity-home.mp4";
 import leena from "../images/leena.jpg";
 import ahmed from "../images/ahmed.jpg";  
 import maria from "../images/maria.jpg";
+
+const Home1 = () => {
+  const navigate = useNavigate();
+  
+  // Language state
+  const [language, setLanguage] = useState(() => {
+    const stored = localStorage.getItem('language') || 'en';
+    return stored;
+  });
+
+  // Donation form modal state
+  const [showDonationForm, setShowDonationForm] = useState(false);
+  const [donationData, setDonationData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    address: '',
+    amount: '',
+    donationType: 'one-time',
+    message: ''
+  });
+
+  // Language detection
+  useEffect(() => {
+    const detectLanguage = () => {
+      const stored = localStorage.getItem('language');
+      if (stored) {
+        setLanguage(stored);
+      }
+    };
+
+    detectLanguage();
+    const handleLanguageChange = () => {
+      const stored = localStorage.getItem('language');
+      if (stored) {
+        setLanguage(stored);
+      }
+    };
+
+    window.addEventListener('languageChanged', handleLanguageChange);
+    const interval = setInterval(detectLanguage, 500);
+
+    return () => {
+      window.removeEventListener('languageChanged', handleLanguageChange);
+      clearInterval(interval);
+    };
+  }, []);
+
+  // Handle donation form
+  const handleDonationSubmit = (e) => {
+    e.preventDefault();
+    
+    // Generate unique ID for donation
+    const donationId = 'donation_' + Date.now();
+    
+    // Create donation record
+    const donationRecord = {
+      id: donationId,
+      ...donationData,
+      timestamp: new Date().toISOString(),
+      status: 'submitted'
+    };
+
+    // Get existing donations from localStorage
+    const existingDonations = JSON.parse(localStorage.getItem('donations') || '[]');
+    
+    // Add new donation
+    existingDonations.push(donationRecord);
+    
+    // Save to localStorage
+    localStorage.setItem('donations', JSON.stringify(existingDonations));
+    
+    // Show success message and close form
+    alert('Thank you for your donation! Your information has been saved.');
+    setShowDonationForm(false);
+    
+    // Reset form
+    setDonationData({
+      name: '',
+      email: '',
+      phone: '',
+      address: '',
+      amount: '',
+      donationType: 'one-time',
+      message: ''
+    });
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setDonationData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
 // Translations for all Home1 content
 const translations = {
   en: {
@@ -113,7 +209,45 @@ const translations = {
 
     ctaTitle: "Ready to Make a Difference?",
     ctaDesc: "Join us today in our mission to bring hope and positive change. Your support can transform lives.",
-    ctaBtn: "Donate Now"
+    ctaBtn: "Donate Now",
+
+    // Additional labels
+    educationLabel: "Education",
+    risehandsLabel: "Risehands",
+    takeActionLabel: "Take Action",
+    beforeLabel: "Before",
+    afterLabel: "After",
+
+    // Stories data
+    stories: [
+      {
+        id: 1,
+        name: "Maria's Family",
+        location: "Kenya",
+        story: "With your support, we built a clean water well that serves 500 people daily.",
+        impact: "Water Access",
+        before: "5km walk for water",
+        after: "Clean water nearby"
+      },
+      {
+        id: 2,
+        name: "Ahmed's Education",
+        location: "Bangladesh",
+        story: "Scholarship program enabled Ahmed to become the first doctor in his village.",
+        impact: "Education",
+        before: "No school access",
+        after: "Medical degree"
+      },
+      {
+        id: 3,
+        name: "Lena's Business",
+        location: "Ukraine",
+        story: "Micro-loan helped start a small business that now employs 8 people.",
+        impact: "Economic Growth",
+        before: "Unemployed",
+        after: "Business owner"
+      }
+    ]
   },
   ar: {
     heroTitle: "تحويل الحياة من خلال العطاء الرحيم",
@@ -180,6 +314,25 @@ const translations = {
       church: "الأعمال الخيرية للكنيسة"
     },
 
+    serviceCards: {
+      emergencyRelief: {
+        title: "الإغاثة الطارئة",
+        desc: "استجابة سريعة للكوارث الطبيعية والأزمات الإنسانية وحالات الطوارئ لتقديم المساعدة والدعم الفوريين."
+      },
+      educationSupport: {
+        title: "دعم التعليم", 
+        desc: "منح دراسية وبرامج بناء مدارس وموارد تعليمية لضمان حصول كل طفل على تعليم جيد."
+      },
+      healthcareServices: {
+        title: "الخدمات الصحية",
+        desc: "بعثات طبية وعيادات صحية وبرامج عافية لتوفير الرعاية الصحية الأساسية للمجتمعات المحرومة."
+      },
+      communityDevelopment: {
+        title: "التنمية المجتمعية",
+        desc: "مشاريع تنمية مستدامة وبناء البنية التحتية وبرامج بناء القدرات لنمو المجتمع على المدى الطويل."
+      }
+    },
+
     learnMoreBtn: "تعرف علينا أكثر",
     whatWeOfferLabel: "ما نقدمه",
     whatWeOfferTitle: "خدمات الدعم الخيري لدينا",
@@ -202,7 +355,45 @@ const translations = {
 
     ctaTitle: "مستعد لصنع فرق؟",
     ctaDesc: "انضم إلينا اليوم في مهمتنا لجلب الأمل والتغيير الإيجابي. دعمك يمكن أن يحول حياة.",
-    ctaBtn: "تبرع الآن"
+    ctaBtn: "تبرع الآن",
+
+    // Additional labels
+    educationLabel: "التعليم",
+    risehandsLabel: "رايزهاندز",
+    takeActionLabel: "اتخذ إجراء",
+    beforeLabel: "قبل",
+    afterLabel: "بعد",
+
+    // Stories data
+    stories: [
+      {
+        id: 1,
+        name: "عائلة ماريا",
+        location: "كينيا",
+        story: "بدعمكم، بنينا بئر مياه نظيفة يخدم 500 شخص يومياً.",
+        impact: "الوصول للمياه",
+        before: "مشي 5 كم للمياه",
+        after: "مياه نظيفة قريبة"
+      },
+      {
+        id: 2,
+        name: "تعليم أحمد",
+        location: "بنغلاديش",
+        story: "برنامج المنح الدراسية مكّن أحمد من أن يصبح أول طبيب في قريته.",
+        impact: "التعليم",
+        before: "لا يوجد وصول للمدرسة",
+        after: "شهادة طبية"
+      },
+      {
+        id: 3,
+        name: "مشروع لينا",
+        location: "أوكرانيا",
+        story: "القرض الصغير ساعد في بدء مشروع صغير يوظف الآن 8 أشخاص.",
+        impact: "النمو الاقتصادي",
+        before: "عاطلة عن العمل",
+        after: "صاحبة مشروع"
+      }
+    ]
   },
   he: {
     heroTitle: "משנים חיים דרך חמלה ונתינה",
@@ -269,6 +460,25 @@ const translations = {
       church: "צדקה לכנסייה"
     },
 
+    serviceCards: {
+      emergencyRelief: {
+        title: "סיוע חירום",
+        desc: "תגובה מהירה לאסונות טבע, משברים הומניטריים ומצבי חירום המספקים סיוע ותמיכה מיידיים."
+      },
+      educationSupport: {
+        title: "תמיכה בחינוך", 
+        desc: "מלגות, תוכניות בניית בתי ספר ומשאבים חינוכיים כדי להבטיח שלכל ילד תהיה גישה ללמידה איכותית."
+      },
+      healthcareServices: {
+        title: "שירותי בריאות",
+        desc: "משימות רפואיות, מרפאות בריאות ותוכניות בריאות המביאות שירותי בריאות חיוניים לקהילות מוחלשות."
+      },
+      communityDevelopment: {
+        title: "פיתוח קהילתי",
+        desc: "פרויקטי פיתוח בר-קיימא, בניית תשתיות ותוכניות בניית יכולות לצמיחה קהילתית ארוכת טווח."
+      }
+    },
+
     learnMoreBtn: "למד עלינו יותר",
     whatWeOfferLabel: "מה אנחנו מציעים",
     whatWeOfferTitle: "שירותי התמיכה הצדקה שלנו",
@@ -294,41 +504,47 @@ const translations = {
 
     ctaTitle: "מוכן לעשות הבדל?",
     ctaDesc: "הצטרף אלינו היום במשימה שלנו להביא תקווה ושינוי חיובי. התמיכה שלך יכולה לשנות חיים.",
-    ctaBtn: "תרום עכשיו"
+    ctaBtn: "תרום עכשיו",
+
+    // Additional labels
+    educationLabel: "חינוך",
+    risehandsLabel: "רייזהאנדס",
+    takeActionLabel: "בצע פעולה",
+    beforeLabel: "לפני",
+    afterLabel: "אחרי",
+
+    // Stories data
+    stories: [
+      {
+        id: 1,
+        name: "משפחת מריה",
+        location: "קניה",
+        story: "בתמיכתכם, בנינו באר מים נקיים המשרתת 500 אנשים ביום.",
+        impact: "גישה למים",
+        before: "הליכה של 5 ק\"מ למים",
+        after: "מים נקיים בקרבת מקום"
+      },
+      {
+        id: 2,
+        name: "החינוך של אחמד",
+        location: "בנגלדש",
+        story: "תוכנית מלגות אפשרה לאחמד להפוך לרופא הראשון בכפר שלו.",
+        impact: "חינוך",
+        before: "אין גישה לבית ספר",
+        after: "תואר ברפואה"
+      },
+      {
+        id: 3,
+        name: "העסק של לנה",
+        location: "אוקראינה",
+        story: "הלוואה קטנה עזרה להקים עסק קטן שמעסיק כעת 8 אנשים.",
+        impact: "צמיחה כלכלית",
+        before: "מובטלת",
+        after: "בעלת עסק"
+      }
+    ]
   }
 };
-const stories = [
-  {
-    id: 1,
-    image: maria,
-    name: "Maria's Family",
-    location: "Kenya",
-    story: "With your support, we built a clean water well that serves 500 people daily.",
-    impact: "Water Access",
-    before: "5km walk for water",
-    after: "Clean water nearby"
-  },
-  {
-    id: 2,
-    image: ahmed,
-    name: "Ahmed's Education",
-    location: "Bangladesh",
-    story: "Scholarship program enabled Ahmed to become the first doctor in his village.",
-    impact: "Education",
-    before: "No school access",
-    after: "Medical degree"
-  },
-  {
-    id: 3,
-    image: leena,
-    name: "Lena's Business",
-    location: "Ukraine",
-    story: "Micro-loan helped start a small business that now employs 8 people.",
-    impact: "Economic Growth",
-    before: "Unemployed",
-    after: "Business owner"
-  }
-];
 const involvementOptions = [
   {
     icon: "💝",
@@ -344,7 +560,7 @@ const involvementOptions = [
     description: "Join our team of dedicated volunteers making a difference locally.",
     features: ["Flexible hours", "Training provided", "Make friends"],
     color: "bg-black",
-    buttonText: "Sign Up"
+    buttonText: "Contact Us"
   },
   {
     icon: "🏢",
@@ -352,7 +568,7 @@ const involvementOptions = [
     description: "Corporate partnerships that create meaningful social impact.",
     features: ["CSR opportunities", "Employee engagement", "Brand alignment"],
     color: "bg-[#4B80B3]",
-    buttonText: "Learn More"
+    buttonText: "Contact Us"
   },
   {
     icon: "📢",
@@ -360,43 +576,18 @@ const involvementOptions = [
     description: "Use your voice to spread awareness and inspire others to act.",
     features: ["Social media kits", "Event resources", "Community building"],
     color: "bg-black",
-    buttonText: "Get Resources"
+    buttonText: "Contact Us"
   }
 ];
 
-const Home1 = () => {
-  const [activeStep, setActiveStep] = React.useState(0);
-  const [language, setLanguage] = useState(localStorage.getItem("language") || "en");
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    const handleLangChange = (e) => {
-      const newLanguage = e.detail || localStorage.getItem("language") || "en";
-      setLanguage(newLanguage);
-    };
-    
-    // Also check localStorage on mount in case it changed
-    const storedLanguage = localStorage.getItem("language");
-    if (storedLanguage && storedLanguage !== language) {
-      setLanguage(storedLanguage);
-    }
-    
-    // Polling mechanism as backup - check localStorage every 500ms
-    const pollLanguage = setInterval(() => {
-      const currentStoredLanguage = localStorage.getItem("language") || "en";
-      if (currentStoredLanguage !== language) {
-        setLanguage(currentStoredLanguage);
-      }
-    }, 500);
-    
-    window.addEventListener("languageChange", handleLangChange);
-    return () => {
-      window.removeEventListener("languageChange", handleLangChange);
-      clearInterval(pollLanguage);
-    };
-  }, [language]);
-
   const t = translations[language] || translations.en;
+
+  // Map images to stories
+  const storyImages = [maria, ahmed, leena];
+  const storiesWithImages = t.stories.map((story, index) => ({
+    ...story,
+    image: storyImages[index]
+  }));
 
   return (
     <div key={`home-${language}`} className="w-screen min-h-screen bg-white dark:bg-black overflow-x-hidden">
@@ -475,7 +666,7 @@ const Home1 = () => {
                     className="w-full h-72 md:h-80 lg:h-96 object-cover rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:scale-105"
                   />
                   <div className="absolute top-6 left-6 bg-[#4B80B3] text-white px-4 py-2 rounded-full text-base font-bold shadow-lg">
-                    Education
+                    {t.educationLabel}
                   </div>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent rounded-3xl"></div>
                 </div>
@@ -488,7 +679,7 @@ const Home1 = () => {
                     className="w-full h-64 md:h-72 object-cover rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:scale-105"
                   />
                   <div className="absolute top-6 left-6 bg-[#4B80B3] text-white px-4 py-2 rounded-full text-base font-bold shadow-lg">
-                    Risehands
+                    {t.risehandsLabel}
                   </div>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent rounded-3xl"></div>
                 </div>
@@ -653,9 +844,9 @@ const Home1 = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-bold mb-4">Emergency Relief</h3>
+                <h3 className="text-2xl font-bold mb-4">{t.serviceCards.emergencyRelief.title}</h3>
                 <p className="text-white leading-relaxed">
-                  Rapid response to natural disasters, humanitarian crises, and emergency situations providing immediate aid and support.
+                  {t.serviceCards.emergencyRelief.desc}
                 </p>
               </motion.div>
 
@@ -672,9 +863,9 @@ const Home1 = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C20.832 18.477 19.246 18 17.5 18c-1.746 0-3.332.477-4.5 1.253" />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-bold mb-4 text-black dark:text-white">Education Support</h3>
+                <h3 className="text-2xl font-bold mb-4 text-black dark:text-white">{t.serviceCards.educationSupport.title}</h3>
                 <p className="text-black dark:text-white leading-relaxed">
-                  Scholarships, school building programs, and educational resources to ensure every child has access to quality learning.
+                  {t.serviceCards.educationSupport.desc}
                 </p>
               </motion.div>
 
@@ -691,9 +882,9 @@ const Home1 = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-bold mb-4 text-black dark:text-white">Healthcare Services</h3>
+                <h3 className="text-2xl font-bold mb-4 text-black dark:text-white">{t.serviceCards.healthcareServices.title}</h3>
                 <p className="text-black dark:text-white leading-relaxed">
-                  Medical missions, health clinics, and wellness programs bringing essential healthcare to underserved communities.
+                  {t.serviceCards.healthcareServices.desc}
                 </p>
               </motion.div>
 
@@ -710,9 +901,9 @@ const Home1 = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-bold mb-4">Community Development</h3>
+                <h3 className="text-2xl font-bold mb-4">{t.serviceCards.communityDevelopment.title}</h3>
                 <p className="text-white leading-relaxed">
-                  Sustainable development projects, infrastructure building, and capacity building programs for long-term community growth.
+                  {t.serviceCards.communityDevelopment.desc}
                 </p>
               </motion.div>
 
@@ -741,7 +932,7 @@ const Home1 = () => {
 
           {/* Stories Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
-            {stories.map((story) => (
+            {storiesWithImages.map((story) => (
               <div key={story.id} className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 group dark:bg-gray-900">
                 {/* Image */}
                 <div className="relative h-64 overflow-hidden">
@@ -771,11 +962,11 @@ const Home1 = () => {
                   <div className="bg-white dark:bg-black border border-black dark:border-white rounded-lg p-4">
                     <div className="flex justify-between items-center text-sm">
                       <div className="text-black dark:text-white">
-                        <div className="font-semibold">Before</div>
+                        <div className="font-semibold">{t.beforeLabel}</div>
                         <div>{story.before}</div>
                       </div>
                       <div className="text-[#4B80B3]">
-                        <div className="font-semibold">After</div>
+                        <div className="font-semibold">{t.afterLabel}</div>
                         <div>{story.after}</div>
                       </div>
                     </div>
@@ -796,7 +987,7 @@ const Home1 = () => {
           {/* Header */}
           <div className="text-center mb-16">
             <span className="inline-block px-4 py-2 bg-white text-[#4B80B3] border border-[#4B80B3] rounded-full text-sm font-semibold mb-4">
-              Take Action
+              {t.takeActionLabel}
             </span>
             <h2 className="text-4xl md:text-5xl font-bold text-black dark:text-white mb-6">
               Many Ways to <span className="text-[#4B80B3]">Help</span>
@@ -831,7 +1022,19 @@ const Home1 = () => {
                   ))}
                 </ul>
 
-                <button className={`px-6 py-3 ${option.color} text-white font-semibold rounded-xl hover:shadow-lg transition-all duration-300 transform hover:scale-105`}>
+                <button 
+                  className={`px-6 py-3 ${option.color} text-white font-semibold rounded-xl hover:shadow-lg transition-all duration-300 transform hover:scale-105`}
+                  onClick={() => {
+                    if (option.title === "Donate") {
+                      setShowDonationForm(true);
+                    } else if (option.buttonText === "Contact Us") {
+                      navigate('/contact');
+                    } else {
+                      // Handle other button actions
+                      console.log(`Clicked ${option.title}`);
+                    }
+                  }}
+                >
                   {option.buttonText}
                 </button>
               </div>
@@ -969,13 +1172,156 @@ const Home1 = () => {
             </p>
             <button
               className="inline-block px-8 py-4 rounded-full font-semibold text-white bg-[#4B80B3] shadow-lg transition-all duration-300 hover:bg-black dark:hover:bg-white hover:text-[#4B80B3] dark:hover:text-[#4B80B3]"
-              onClick={() => navigate('/donate')}
+              onClick={() => setShowDonationForm(true)}
             >
               {t.ctaBtn}
             </button>
           </div>
         </div>
       </section>
+
+      {/* Donation Form Modal */}
+      {showDonationForm && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-lg max-w-md w-full max-h-[90vh] overflow-y-auto">
+            <div className="p-6">
+              <div className="flex justify-between items-center mb-6">
+                <h2 className="text-2xl font-bold text-gray-900">Make a Donation</h2>
+                <button
+                  onClick={() => setShowDonationForm(false)}
+                  className="text-gray-400 hover:text-gray-600 text-2xl"
+                >
+                  ×
+                </button>
+              </div>
+
+              <form onSubmit={handleDonationSubmit} className="space-y-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Full Name *
+                  </label>
+                  <input
+                    type="text"
+                    name="name"
+                    value={donationData.name}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4B80B3]"
+                    placeholder="Enter your full name"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Email Address *
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    value={donationData.email}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4B80B3]"
+                    placeholder="Enter your email"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Phone Number *
+                  </label>
+                  <input
+                    type="tel"
+                    name="phone"
+                    value={donationData.phone}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4B80B3]"
+                    placeholder="Enter your phone number"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Address *
+                  </label>
+                  <textarea
+                    name="address"
+                    value={donationData.address}
+                    onChange={handleInputChange}
+                    required
+                    rows="3"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4B80B3]"
+                    placeholder="Enter your complete address"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Donation Amount *
+                  </label>
+                  <input
+                    type="number"
+                    name="amount"
+                    value={donationData.amount}
+                    onChange={handleInputChange}
+                    required
+                    min="1"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4B80B3]"
+                    placeholder="Enter amount"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Donation Type
+                  </label>
+                  <select
+                    name="donationType"
+                    value={donationData.donationType}
+                    onChange={handleInputChange}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4B80B3]"
+                  >
+                    <option value="one-time">One-time Donation</option>
+                    <option value="monthly">Monthly Donation</option>
+                    <option value="yearly">Yearly Donation</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Message (Optional)
+                  </label>
+                  <textarea
+                    name="message"
+                    value={donationData.message}
+                    onChange={handleInputChange}
+                    rows="3"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4B80B3]"
+                    placeholder="Any message you'd like to include..."
+                  />
+                </div>
+
+                <div className="flex gap-4 pt-4">
+                  <button
+                    type="button"
+                    onClick={() => setShowDonationForm(false)}
+                    className="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-md hover:bg-gray-50 transition-colors"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    type="submit"
+                    className="flex-1 px-4 py-2 bg-[#4B80B3] text-white rounded-md hover:bg-blue-700 transition-colors"
+                  >
+                    Submit Donation
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

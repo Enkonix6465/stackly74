@@ -172,15 +172,15 @@ const Welcome = () => {
 
   return (
     <>
-      <div className="min-h-screen w-full flex items-center justify-center bg-white font-sans" style={{backgroundImage: `url(${image})`, backgroundSize: 'cover', backgroundPosition: 'center'}}>
-        <div className="w-full max-w-md bg-black/20 rounded-2xl shadow-2xl border-2 border-[#25be85] p-4 sm:p-8 flex flex-col justify-center items-stretch backdrop-blur mx-4 sm:mx-0">
+      <div className="min-h-screen w-full flex items-center justify-center font-sans" style={{backgroundColor: '#4B80B3'}}>
+        <div className="w-full max-w-md bg-black/20 rounded-2xl shadow-2xl border-2 border-[#4B80B3] p-4 sm:p-8 flex flex-col justify-center items-stretch backdrop-blur mx-4 sm:mx-0">
           <div className="mb-4 sm:mb-6 text-center">
             <div className="flex flex-col items-center gap-2">
               <img src={logo} alt="Stackly Logo" className="w-20 sm:w-28 h-auto mb-2 drop-shadow bg-white p-2 rounded" />
               <select
                 value={language}
                 onChange={(e) => setLanguage(e.target.value)}
-                className="px-3 py-2 sm:px-4 sm:py-2 rounded-lg border-2 border-[#25be85] bg-white text-black font-semibold focus:outline-none text-sm sm:text-base"
+                className="px-3 py-2 sm:px-4 sm:py-2 rounded-lg border-2 border-[#4B80B3] bg-white text-black font-semibold focus:outline-none text-sm sm:text-base"
               >
                 <option value="en">English</option>
                 <option value="ar">العربية</option>
@@ -203,11 +203,11 @@ const Welcome = () => {
                 <form onSubmit={handleLoginSubmit} className="flex flex-col gap-3 sm:gap-4">
                   <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-3 sm:mb-4">
                     <label htmlFor="login-username" className="font-bold text-white text-base sm:text-lg sm:min-w-[100px]">
-                      Username <span className="text-red-500">*</span>
+                      Username <span className="text-black">*</span>
                     </label>
                     <input
                       id="login-username"
-                      className="flex-1 px-3 py-2 sm:px-4 sm:py-3 rounded-lg border-2 border-[#25be85] bg-white text-black font-medium focus:outline-none text-sm sm:text-base"
+                      className="flex-1 px-3 py-2 sm:px-4 sm:py-3 rounded-lg border-2 border-[#4B80B3] bg-white text-black font-medium focus:outline-none text-sm sm:text-base"
                       type="email"
                       name="email"
                       placeholder={t.email}
@@ -218,11 +218,11 @@ const Welcome = () => {
                   </div>
                   <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-3 sm:mb-4">
                     <label htmlFor="login-password" className="font-bold text-white text-base sm:text-lg sm:min-w-[100px]">
-                      Password <span className="text-red-500">*</span>
+                      Password <span className="text-black">*</span>
                     </label>
                     <input
                       id="login-password"
-                      className="flex-1 px-3 py-2 sm:px-4 sm:py-3 rounded-lg border-2 border-[#25be85] bg-white text-black font-medium focus:outline-none text-sm sm:text-base"
+                      className="flex-1 px-3 py-2 sm:px-4 sm:py-3 rounded-lg border-2 border-[#4B80B3] bg-white text-black font-medium focus:outline-none text-sm sm:text-base"
                       type="password"
                       name="password"
                       placeholder={t.password}
@@ -232,7 +232,7 @@ const Welcome = () => {
                     />
                   </div>
                   <p
-                    className="text-right text-white font-bold text-sm sm:text-base cursor-pointer mb-2 hover:underline hover:text-[#25be85] transition-colors"
+                    className="text-right text-white font-bold text-sm sm:text-base cursor-pointer mb-2 hover:underline hover:text-[#4B80B3] transition-colors"
                     onClick={() => {
                       setError("");
                       setIsForgotPassword(true);
@@ -241,13 +241,13 @@ const Welcome = () => {
                   >
                     {t.forgot}
                   </p>
-                  <button type="submit" className="bg-[#25be85] text-white font-bold py-2 sm:py-3 rounded-lg shadow-lg text-base sm:text-lg mt-2 hover:from-black hover:to-[#25be85] transition">
+                  <button type="submit" className="bg-[#4B80B3] text-white font-bold py-2 sm:py-3 rounded-lg shadow-lg text-base sm:text-lg mt-2 hover:bg-black transition">
                     <span role="img" aria-label="user-lock" className="mr-2">👤🔒</span> {t.login}
                   </button>
                   <p className="text-center text-white font-bold mt-3 sm:mt-4 text-sm sm:text-base">
                     {t.dontHave.split('Sign Up')[0]}
                     <span
-                      className="text-[#25be85] underline cursor-pointer ml-1 hover:text-black transition-colors"
+                      className="text-[#4B80B3] underline cursor-pointer ml-1 hover:text-black transition-colors"
                       onClick={() => {
                         setError("");
                         setIsLogin(false);
@@ -259,11 +259,11 @@ const Welcome = () => {
                 <form onSubmit={handleSignUpSubmit} className="flex flex-col gap-3 sm:gap-4">
                   <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-2 sm:mb-3">
                     <label htmlFor="signup-firstName" className="font-bold text-white text-sm sm:text-base sm:min-w-[100px]">
-                      First Name <span className="text-red-500">*</span>
+                      First Name <span className="text-black">*</span>
                     </label>
                     <input
                       id="signup-firstName"
-                      className="flex-1 px-3 py-2 sm:px-4 sm:py-3 rounded-lg border-2 border-[#25be85] bg-white text-black font-medium focus:outline-none text-sm sm:text-base"
+                      className="flex-1 px-3 py-2 sm:px-4 sm:py-3 rounded-lg border-2 border-[#4B80B3] bg-white text-black font-medium focus:outline-none text-sm sm:text-base"
                       type="text"
                       name="firstName"
                       placeholder={t.firstName}
@@ -274,11 +274,11 @@ const Welcome = () => {
                   </div>
                   <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-2 sm:mb-3">
                     <label htmlFor="signup-lastName" className="font-bold text-white text-sm sm:text-base sm:min-w-[100px]">
-                      Last Name <span className="text-red-500">*</span>
+                      Last Name <span className="text-black">*</span>
                     </label>
                     <input
                       id="signup-lastName"
-                      className="flex-1 px-3 py-2 sm:px-4 sm:py-3 rounded-lg border-2 border-[#25be85] bg-white text-black font-medium focus:outline-none text-sm sm:text-base"
+                      className="flex-1 px-3 py-2 sm:px-4 sm:py-3 rounded-lg border-2 border-[#4B80B3] bg-white text-black font-medium focus:outline-none text-sm sm:text-base"
                       type="text"
                       name="lastName"
                       placeholder={t.lastName}
@@ -289,11 +289,11 @@ const Welcome = () => {
                   </div>
                   <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-2 sm:mb-3">
                     <label htmlFor="signup-email" className="font-bold text-white text-sm sm:text-base sm:min-w-[100px]">
-                      Email <span className="text-red-500">*</span>
+                      Email <span className="text-black">*</span>
                     </label>
                     <input
                       id="signup-email"
-                      className="flex-1 px-3 py-2 sm:px-4 sm:py-3 rounded-lg border-2 border-[#25be85] bg-white text-black font-medium focus:outline-none text-sm sm:text-base"
+                      className="flex-1 px-3 py-2 sm:px-4 sm:py-3 rounded-lg border-2 border-[#4B80B3] bg-white text-black font-medium focus:outline-none text-sm sm:text-base"
                       type="email"
                       name="email"
                       placeholder={t.email}
@@ -304,11 +304,11 @@ const Welcome = () => {
                   </div>
                   <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-2 sm:mb-3">
                     <label htmlFor="signup-password" className="font-bold text-white text-sm sm:text-base sm:min-w-[100px]">
-                      Password <span className="text-red-500">*</span>
+                      Password <span className="text-black">*</span>
                     </label>
                     <input
                       id="signup-password"
-                      className="flex-1 px-3 py-2 sm:px-4 sm:py-3 rounded-lg border-2 border-[#25be85] bg-white text-black font-medium focus:outline-none text-sm sm:text-base"
+                      className="flex-1 px-3 py-2 sm:px-4 sm:py-3 rounded-lg border-2 border-[#4B80B3] bg-white text-black font-medium focus:outline-none text-sm sm:text-base"
                       type="password"
                       name="password"
                       placeholder={t.password}
@@ -317,13 +317,13 @@ const Welcome = () => {
                       required
                     />
                   </div>
-                  <button type="submit" className="bg-[#25be85] text-white font-bold py-2 sm:py-3 rounded-lg shadow-lg text-base sm:text-lg mt-2 hover:from-black hover:to-[#25be85] transition">
+                  <button type="submit" className="bg-[#4B80B3] text-white font-bold py-2 sm:py-3 rounded-lg shadow-lg text-base sm:text-lg mt-2 hover:bg-black transition">
                     {t.signUp}
                   </button>
                   <p className="text-center text-white font-bold mt-3 sm:mt-4 text-sm sm:text-base">
                     {t.alreadyHave.split('welcome')[0]}
                     <span
-                      className="text-[#25be85] underline cursor-pointer ml-1 hover:text-black transition-colors"
+                      className="text-[#4B80B3] underline cursor-pointer ml-1 hover:text-black transition-colors"
                       onClick={() => {
                         setError("");
                         setIsLogin(true);
@@ -332,26 +332,26 @@ const Welcome = () => {
                   </p>
                 </form>
               )}
-              {error && <p className="text-red-600 font-bold mt-2 text-center text-sm sm:text-base bg-white/80 p-2 rounded">{error}</p>}
-              {resetMessage && <p className="text-[#25be85] font-bold mt-2 text-center text-sm sm:text-base bg-white/80 p-2 rounded">{resetMessage}</p>}
+              {error && <p className="text-black font-bold mt-2 text-center text-sm sm:text-base bg-white/80 p-2 rounded">{error}</p>}
+              {resetMessage && <p className="text-[#4B80B3] font-bold mt-2 text-center text-sm sm:text-base bg-white/80 p-2 rounded">{resetMessage}</p>}
             </>
           ) : (
             <>
               <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-white text-center">{t.resetPassword}</h2>
               <form onSubmit={handleForgotPasswordSubmit} className="flex flex-col gap-3 sm:gap-4">
                 <input
-                  className="px-3 py-2 sm:px-4 sm:py-3 rounded-lg border-2 border-[#25be85] bg-white text-black font-medium focus:outline-none text-sm sm:text-base"
+                  className="px-3 py-2 sm:px-4 sm:py-3 rounded-lg border-2 border-[#4B80B3] bg-white text-black font-medium focus:outline-none text-sm sm:text-base"
                   type="email"
                   placeholder={t.resetEmail}
                   value={forgotEmail}
                   onChange={handleForgotPasswordChange}
                   required
                 />
-                <button type="submit" className="bg-gradient-to-r from-[#25be85] to-black text-white font-bold py-2 sm:py-3 rounded-lg shadow-lg text-base sm:text-lg mt-2 hover:from-black hover:to-[#25be85] transition">
+                <button type="submit" className="bg-[#4B80B3] text-white font-bold py-2 sm:py-3 rounded-lg shadow-lg text-base sm:text-lg mt-2 hover:bg-black transition">
                   {t.sendReset}
                 </button>
                 <p
-                  className="text-center text-[#25be85] font-bold mt-3 sm:mt-4 text-sm sm:text-base cursor-pointer hover:text-white transition-colors"
+                  className="text-center text-[#4B80B3] font-bold mt-3 sm:mt-4 text-sm sm:text-base cursor-pointer hover:text-white transition-colors"
                   onClick={() => {
                     setError("");
                     setResetMessage("");
@@ -361,8 +361,8 @@ const Welcome = () => {
                   {t.backToLogin}
                 </p>
               </form>
-              {error && <p className="text-red-600 font-bold mt-2 text-center text-sm sm:text-base bg-white/80 p-2 rounded">{error}</p>}
-              {resetMessage && <p className="text-[#25be85] font-bold mt-2 text-center text-sm sm:text-base bg-white/80 p-2 rounded">{resetMessage}</p>}
+              {error && <p className="text-black font-bold mt-2 text-center text-sm sm:text-base bg-white/80 p-2 rounded">{error}</p>}
+              {resetMessage && <p className="text-[#4B80B3] font-bold mt-2 text-center text-sm sm:text-base bg-white/80 p-2 rounded">{resetMessage}</p>}
             </>
           )}
         </div>
@@ -409,7 +409,7 @@ const styles = {
     color: "#000",
   },
   highlight: {
-    color: "##25be85",
+    color: "#4B80B3",
   },
   welcomeSubtext: {
     marginBottom: "30px",
@@ -431,7 +431,7 @@ const styles = {
     color: "#000",
   },
   loginButton: {
-    backgroundColor: "#25be85",
+    backgroundColor: "#4B80B3",
     color: "#fff",
     fontWeight: "bold",
     border: "none",
@@ -443,7 +443,7 @@ const styles = {
   },
   forgotPassword: {
     textAlign: "right",
-    color: "#25be85",
+    color: "#4B80B3",
     cursor: "pointer",
     fontSize: "14px",
     marginTop: "-10px",
@@ -451,14 +451,14 @@ const styles = {
   },
   toggle: {
     cursor: "pointer",
-    color: "#25be85",
+    color: "#4B80B3",
     marginTop: "15px",
     textAlign: "center",
     userSelect: "none",
     fontWeight: "bold",
   },
   errorMsg: {
-    color: "#25be85",
+    color: "#4B80B3",
     marginTop: "10px",
     fontWeight: "bold",
   },
