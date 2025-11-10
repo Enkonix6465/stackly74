@@ -3,12 +3,12 @@ import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import video from "../images/charity-home.mp4";
 import leena from "../images/leena.jpg";
-import ahmed from "../images/ahmed.jpg";  
+import ahmed from "../images/ahmed.jpg";
 import maria from "../images/maria.jpg";
-
+import volimage from "../images/volimage.jpg";
 const Home1 = () => {
   const navigate = useNavigate();
-  
+
   // Language state
   const [language, setLanguage] = useState(() => {
     const stored = localStorage.getItem('language') || 'en';
@@ -56,10 +56,10 @@ const Home1 = () => {
   // Handle donation form
   const handleDonationSubmit = (e) => {
     e.preventDefault();
-    
+
     // Generate unique ID for donation
     const donationId = 'donation_' + Date.now();
-    
+
     // Create donation record
     const donationRecord = {
       id: donationId,
@@ -70,17 +70,17 @@ const Home1 = () => {
 
     // Get existing donations from localStorage
     const existingDonations = JSON.parse(localStorage.getItem('donations') || '[]');
-    
+
     // Add new donation
     existingDonations.push(donationRecord);
-    
+
     // Save to localStorage
     localStorage.setItem('donations', JSON.stringify(existingDonations));
-    
+
     // Show success message and close form
     alert('Thank you for your donation! Your information has been saved.');
     setShowDonationForm(false);
-    
+
     // Reset form
     setDonationData({
       name: '',
@@ -101,484 +101,484 @@ const Home1 = () => {
     }));
   };
 
-// Translations for all Home1 content
-const translations = {
-  en: {
-    heroTitle: "Transforming Lives Through Compassionate Giving",
-    heroDesc: "Our dedicated team provides essential support, emergency relief, and sustainable solutions to communities in need around the world.",
-    getStarted: "Join Our Mission",
-    aboutYears: "25 Years of Service",
-    aboutFirm: "About Our Charity",
-    aboutTitle: "Committed to Hope, Compassion, and Lasting Change",
-    aboutDesc: "For over 25 years, our charity has provided life-changing support to vulnerable communities, families, and individuals. Our passionate team is committed to upholding the highest standards of transparency and impact, ensuring every donation creates meaningful and sustainable change.",
-    aboutList: [
-      "Expertise in education, healthcare, emergency relief and community development",
-      "Donor-focused approach with full financial transparency",
-      "Proven track record of successful community projects",
-      "Compassionate service and ethical operations"
-    ],
-    aboutBtn: "About Us",
-    approachTitle: "Our Charity Approach",
-    approachDesc: "We follow a comprehensive process designed to maximize impact and ensure resources reach those who need them most.",
-    steps: [
-      {
-        title: "Needs Assessment",
-        description: "We begin with thorough research to identify communities and individuals most in need of support.",
-        icon: "🔍"
-      },
-      {
-        title: "Project Planning",
-        description: "Our team develops detailed plans to address specific needs with sustainable solutions.",
-        icon: "📋"
-      },
-      {
-        title: "Resource Mobilization",
-        description: "We gather donations, volunteers, and partners to make our projects possible.",
-        icon: "🤝"
-      },
-      {
-        title: "Implementation",
-        description: "Our team works directly with communities to deliver aid and support services.",
-        icon: "🚀"
-      },
-      {
-        title: "Impact Evaluation",
-        description: "We monitor results and measure impact to ensure continuous improvement.",
-        icon: "✅"
-      }
-    ],
-    excellenceTitle: "Our Impact in Numbers",
-    excellenceDesc: "With over three decades of collective experience, our team has successfully delivered life-changing support to communities across various regions and causes.",
-    stats: [
-      { number: "50M+", label: "Lives Touched", desc: "Through our various projects and programs" },
-      { number: "500+", label: "Projects Completed", desc: "Successful community initiatives" },
-      { number: "30+", label: "Countries", desc: "Where we've made a difference" },
-      { number: "99%", label: "Donor Satisfaction", desc: "Based on impact reports and feedback" }
-    ],
+  // Translations for all Home1 content
+  const translations = {
+    en: {
+      heroTitle: "Transforming Lives Through Compassionate Giving",
+      heroDesc: "Our dedicated team provides essential support, emergency relief, and sustainable solutions to communities in need around the world.",
+      getStarted: "Join Our Mission",
+      aboutYears: "25 Years of Service",
+      aboutFirm: "About Our Charity",
+      aboutTitle: "Committed to Hope, Compassion, and Lasting Change",
+      aboutDesc: "For over 25 years, our charity has provided life-changing support to vulnerable communities, families, and individuals. Our passionate team is committed to upholding the highest standards of transparency and impact, ensuring every donation creates meaningful and sustainable change.",
+      aboutList: [
+        "Expertise in education, healthcare, emergency relief and community development",
+        "Donor-focused approach with full financial transparency",
+        "Proven track record of successful community projects",
+        "Compassionate service and ethical operations"
+      ],
+      aboutBtn: "About Us",
+      approachTitle: "Our Charity Approach",
+      approachDesc: "We follow a comprehensive process designed to maximize impact and ensure resources reach those who need them most.",
+      steps: [
+        {
+          title: "Needs Assessment",
+          description: "We begin with thorough research to identify communities and individuals most in need of support.",
+          icon: "🔍"
+        },
+        {
+          title: "Project Planning",
+          description: "Our team develops detailed plans to address specific needs with sustainable solutions.",
+          icon: "📋"
+        },
+        {
+          title: "Resource Mobilization",
+          description: "We gather donations, volunteers, and partners to make our projects possible.",
+          icon: "🤝"
+        },
+        {
+          title: "Implementation",
+          description: "Our team works directly with communities to deliver aid and support services.",
+          icon: "🚀"
+        },
+        {
+          title: "Impact Evaluation",
+          description: "We monitor results and measure impact to ensure continuous improvement.",
+          icon: "✅"
+        }
+      ],
+      excellenceTitle: "Our Impact in Numbers",
+      excellenceDesc: "With over three decades of collective experience, our team has successfully delivered life-changing support to communities across various regions and causes.",
+      stats: [
+        { number: "50M+", label: "Lives Touched", desc: "Through our various projects and programs" },
+        { number: "500+", label: "Projects Completed", desc: "Successful community initiatives" },
+        { number: "30+", label: "Countries", desc: "Where we've made a difference" },
+        { number: "99%", label: "Donor Satisfaction", desc: "Based on impact reports and feedback" }
+      ],
 
-    aboutRisehandsLabel: "About Risehands",
-    helpingVirtueTitle: "Helping is Great Virtue for Every Human's",
-    helpingVirtueDesc: "It has been determined through research that when we feel to help, and that someone authentically needs our assistance, and that trick is being played on us, we reliably do intervene. Interestingly, it has been found that we are less likely to help an examination of the intrinsic worth of helping others, transcending cultural, religious, and societal boundaries.",
-    
-    charityCategories: {
-      education: "Charity For Education",
-      pets: "Charity For Pets", 
-      medical: "Charity For Medical Health",
-      cleanWater: "Charity For Clean Water",
-      church: "Charity For Church"
+      aboutRisehandsLabel: "About Risehands",
+      helpingVirtueTitle: "Helping is Great Virtue for Every Human's",
+      helpingVirtueDesc: "It has been determined through research that when we feel to help, and that someone authentically needs our assistance, and that trick is being played on us, we reliably do intervene. Interestingly, it has been found that we are less likely to help an examination of the intrinsic worth of helping others, transcending cultural, religious, and societal boundaries.",
+
+      charityCategories: {
+        education: "Charity For Education",
+        pets: "Charity For Pets",
+        medical: "Charity For Medical Health",
+        cleanWater: "Charity For Clean Water",
+        church: "Charity For Church"
+      },
+
+      serviceCards: {
+        emergencyRelief: {
+          title: "Emergency Relief",
+          desc: "Rapid response to natural disasters, humanitarian crises, and emergency situations providing immediate aid and support."
+        },
+        educationSupport: {
+          title: "Education Support",
+          desc: "Scholarships, school building programs, and educational resources to ensure every child has access to quality learning."
+        },
+        healthcareServices: {
+          title: "Healthcare Services",
+          desc: "Medical missions, health clinics, and wellness programs bringing essential healthcare to underserved communities."
+        },
+        communityDevelopment: {
+          title: "Community Development",
+          desc: "Sustainable development projects, infrastructure building, and capacity building programs for long-term community growth."
+        }
+      },
+
+      learnMoreBtn: "Learn More Us",
+      whatWeOfferLabel: "WHAT WE OFFER",
+      whatWeOfferTitle: "Our charity support services",
+      whatWeOfferDesc: "We provide comprehensive support through various charitable programs designed to make a lasting impact. Our dedicated team works tirelessly to address the most pressing needs in communities worldwide, ensuring every donation creates meaningful change.",
+      allServicesBtn: "All Services",
+
+      realImpactLabel: "Real Impact",
+      storiesTitle: "Stories of Hope",
+      storiesDesc: "See how your generosity creates real change in people's lives around the world.",
+
+      volunteerTitle: "Become Volunteer",
+      volunteerDesc: "Join our community of dedicated volunteers and make a meaningful difference in people's lives. Together, we can create lasting change and bring hope to those who need it most.",
+      volunteerFeatures: {
+        flexible: "Flexible scheduling",
+        training: "Training provided",
+        impact: "Make lasting impact"
+      },
+      joinNowBtn: "Join Now",
+      learnMoreBtn2: "Learn More",
+
+      ctaTitle: "Ready to Make a Difference?",
+      ctaDesc: "Join us today in our mission to bring hope and positive change. Your support can transform lives.",
+      ctaBtn: "Donate Now",
+
+      // Additional labels
+      educationLabel: "Education",
+      risehandsLabel: "Risehands",
+      takeActionLabel: "Take Action",
+      beforeLabel: "Before",
+      afterLabel: "After",
+
+      // Stories data
+      stories: [
+        {
+          id: 1,
+          name: "Maria's Family",
+          location: "Kenya",
+          story: "With your support, we built a clean water well that serves 500 people daily.",
+          impact: "Water Access",
+          before: "5km walk for water",
+          after: "Clean water nearby"
+        },
+        {
+          id: 2,
+          name: "Ahmed's Education",
+          location: "Bangladesh",
+          story: "Scholarship program enabled Ahmed to become the first doctor in his village.",
+          impact: "Education",
+          before: "No school access",
+          after: "Medical degree"
+        },
+        {
+          id: 3,
+          name: "Lena's Business",
+          location: "Ukraine",
+          story: "Micro-loan helped start a small business that now employs 8 people.",
+          impact: "Economic Growth",
+          before: "Unemployed",
+          after: "Business owner"
+        }
+      ]
     },
+    ar: {
+      heroTitle: "تحويل الحياة من خلال العطاء الرحيم",
+      heroDesc: "يقدم فريقنا المتفاني الدعم الأساسي والإغاثة في حالات الطوارئ والحلول المستدامة للمجتمعات المحتاجة حول العالم.",
+      getStarted: "انضم إلى مهمتنا",
+      aboutYears: "25 سنة من الخدمة",
+      aboutFirm: "عن جمعيتنا الخيرية",
+      aboutTitle: "ملتزمون بالأمل والرحمة والتغيير الدائم",
+      aboutDesc: "على مدار 25 عامًا، قدمت جمعيتنا الخيرية دعماً يغير الحياة للمجتمعات والأسر والأفراد الضعفاء. فريقنا المتحمس ملتزم بالحفاظ على أعلى معايير الشفافية والتأثير، مما يضمن أن كل تبرع يخلق تغييرًا هادفًا ومستدامًا.",
+      aboutList: [
+        "خبرة في التعليم والرعاية الصحية والإغاثة في حالات الطوارئ وتنمية المجتمع",
+        "نهج يركز على المتبرعين مع الشفافية المالية الكاملة",
+        "سجل حافل بمشاريع مجتمعية ناجحة",
+        "خدمة رحيمة وعمليات أخلاقية"
+      ],
+      aboutBtn: "معلومات عنا",
+      approachTitle: "نهجنا الخيري",
+      approachDesc: "نتبع عملية شاملة مصممة لتعظيم التأثير وضمان وصول الموارد إلى أولئك الذين يحتاجونها بشدة.",
+      steps: [
+        {
+          title: "تقييم الاحتياجات",
+          description: "نبدأ بأبحاث شاملة لتحديد المجتمعات والأفراد الأكثر احتياجًا للدعم.",
+          icon: "🔍"
+        },
+        {
+          title: "تخطيط المشروع",
+          description: "يضع فريقنا خططًا مفصلة لمعالجة الاحتياجات المحددة بحلول مستدامة.",
+          icon: "📋"
+        },
+        {
+          title: "تعبئة الموارد",
+          description: "نجمع التبرعات والمتطوعين والشركاء لجعل مشاريعنا ممكنة.",
+          icon: "🤝"
+        },
+        {
+          title: "التنفيذ",
+          description: "يعمل فريقنا مباشرة مع المجتمعات لتقديم المساعدة وخدمات الدعم.",
+          icon: "🚀"
+        },
+        {
+          title: "تقييم الأثر",
+          description: "نراقب النتائج ونقيس التأثير لضمان التحسين المستمر.",
+          icon: "✅"
+        }
+      ],
+      excellenceTitle: "تأثيرنا في الأرقام",
+      excellenceDesc: "بخبرة جماعية تزيد عن ثلاثة عقود، نجح فريقنا في تقديم دعم يغير الحياة لمجتمعات في مختلف المناطق والقضايا.",
+      stats: [
+        { number: "50M+", label: "حياة مستفيدة", desc: "من خلال مشاريعنا وبرامجنا المختلفة" },
+        { number: "500+", label: "مشروع مكتمل", desc: "مبادرات مجتمعية ناجحة" },
+        { number: "30+", label: "دولة", desc: "حققنا فيها فرقًا ملموسًا" },
+        { number: "99%", label: "رضا المتبرعين", desc: "بناءً على تقارير التأثير وملاحظاتهم" }
+      ],
 
-    serviceCards: {
-      emergencyRelief: {
-        title: "Emergency Relief",
-        desc: "Rapid response to natural disasters, humanitarian crises, and emergency situations providing immediate aid and support."
+      aboutRisehandsLabel: "عن رايزهاندز",
+      helpingVirtueTitle: "المساعدة فضيلة عظيمة لكل إنسان",
+      helpingVirtueDesc: "لقد تم تحديد من خلال البحث أنه عندما نشعر بالرغبة في المساعدة، وأن شخصًا ما يحتاج بصدق إلى مساعدتنا، وأنه لا يتم خداعنا، فإننا نتدخل بشكل موثوق. من المثير للاهتمام أنه تم اكتشاف أننا أقل ميلاً للمساعدة في فحص القيمة الجوهرية لمساعدة الآخرين، متجاوزين الحدود الثقافية والدينية والاجتماعية.",
+
+      charityCategories: {
+        education: "الأعمال الخيرية للتعليم",
+        pets: "الأعمال الخيرية للحيوانات الأليفة",
+        medical: "الأعمال الخيرية للصحة الطبية",
+        cleanWater: "الأعمال الخيرية للمياه النظيفة",
+        church: "الأعمال الخيرية للكنيسة"
       },
-      educationSupport: {
-        title: "Education Support", 
-        desc: "Scholarships, school building programs, and educational resources to ensure every child has access to quality learning."
+
+      serviceCards: {
+        emergencyRelief: {
+          title: "الإغاثة الطارئة",
+          desc: "استجابة سريعة للكوارث الطبيعية والأزمات الإنسانية وحالات الطوارئ لتقديم المساعدة والدعم الفوريين."
+        },
+        educationSupport: {
+          title: "دعم التعليم",
+          desc: "منح دراسية وبرامج بناء مدارس وموارد تعليمية لضمان حصول كل طفل على تعليم جيد."
+        },
+        healthcareServices: {
+          title: "الخدمات الصحية",
+          desc: "بعثات طبية وعيادات صحية وبرامج عافية لتوفير الرعاية الصحية الأساسية للمجتمعات المحرومة."
+        },
+        communityDevelopment: {
+          title: "التنمية المجتمعية",
+          desc: "مشاريع تنمية مستدامة وبناء البنية التحتية وبرامج بناء القدرات لنمو المجتمع على المدى الطويل."
+        }
       },
-      healthcareServices: {
-        title: "Healthcare Services",
-        desc: "Medical missions, health clinics, and wellness programs bringing essential healthcare to underserved communities."
+
+      learnMoreBtn: "تعرف علينا أكثر",
+      whatWeOfferLabel: "ما نقدمه",
+      whatWeOfferTitle: "خدمات الدعم الخيري لدينا",
+      whatWeOfferDesc: "نحن نقدم دعمًا شاملاً من خلال برامج خيرية متنوعة مصممة لإحداث تأثير دائم. يعمل فريقنا المتفاني بلا كلل لمعالجة أهم الاحتياجات في المجتمعات في جميع أنحاء العالم، مما يضمن أن كل تبرع يخلق تغييرًا ذا معنى.",
+      allServicesBtn: "جميع الخدمات",
+
+      realImpactLabel: "تأثير حقيقي",
+      storiesTitle: "قصص الأمل",
+      storiesDesc: "شاهد كيف يخلق كرمك تغييرًا حقيقيًا في حياة الناس حول العالم.",
+
+      volunteerTitle: "كن متطوعًا",
+      volunteerDesc: "انضم إلى مجتمعنا من المتطوعين المتفانين واصنع فرقًا ذا معنى في حياة الناس. معًا، يمكننا إحداث تغيير دائم وجلب الأمل لأولئك الذين يحتاجونه أكثر.",
+      volunteerFeatures: {
+        flexible: "جدولة مرنة",
+        training: "تدريب مقدم",
+        impact: "إحداث تأثير دائم"
       },
-      communityDevelopment: {
-        title: "Community Development",
-        desc: "Sustainable development projects, infrastructure building, and capacity building programs for long-term community growth."
-      }
+      joinNowBtn: "انضم الآن",
+      learnMoreBtn2: "تعرف أكثر",
+
+      ctaTitle: "مستعد لصنع فرق؟",
+      ctaDesc: "انضم إلينا اليوم في مهمتنا لجلب الأمل والتغيير الإيجابي. دعمك يمكن أن يحول حياة.",
+      ctaBtn: "تبرع الآن",
+
+      // Additional labels
+      educationLabel: "التعليم",
+      risehandsLabel: "رايزهاندز",
+      takeActionLabel: "اتخذ إجراء",
+      beforeLabel: "قبل",
+      afterLabel: "بعد",
+
+      // Stories data
+      stories: [
+        {
+          id: 1,
+          name: "عائلة ماريا",
+          location: "كينيا",
+          story: "بدعمكم، بنينا بئر مياه نظيفة يخدم 500 شخص يومياً.",
+          impact: "الوصول للمياه",
+          before: "مشي 5 كم للمياه",
+          after: "مياه نظيفة قريبة"
+        },
+        {
+          id: 2,
+          name: "تعليم أحمد",
+          location: "بنغلاديش",
+          story: "برنامج المنح الدراسية مكّن أحمد من أن يصبح أول طبيب في قريته.",
+          impact: "التعليم",
+          before: "لا يوجد وصول للمدرسة",
+          after: "شهادة طبية"
+        },
+        {
+          id: 3,
+          name: "مشروع لينا",
+          location: "أوكرانيا",
+          story: "القرض الصغير ساعد في بدء مشروع صغير يوظف الآن 8 أشخاص.",
+          impact: "النمو الاقتصادي",
+          before: "عاطلة عن العمل",
+          after: "صاحبة مشروع"
+        }
+      ]
     },
+    he: {
+      heroTitle: "משנים חיים דרך חמלה ונתינה",
+      heroDesc: "הצוות המסור שלנו מספק תמיכה חיונית, סיוע חירום ופתרונות ברי-קיימא לקהילות נזקקות ברחבי העולם.",
+      getStarted: "הצטרף למשימה שלנו",
+      aboutYears: "25 שנות שירות",
+      aboutFirm: "על העמותה שלנו",
+      aboutTitle: "מחויבים לתקווה, חמלה ושינוי מתמשך",
+      aboutDesc: "במשך יותר מ-25 שנה, העמותה שלנו סיפקה תמיכה משנה חיים לקהילות, משפחות ויחידים פגיעים. הצוות הנלהב שלנו מחויב לשמירה על הסטנדרטים הגבוהים ביותר של שקיפות והשפעה, כדי להבטיח שכל תרומה יוצרת שינוי משמעותי ובר-קיימא.",
+      aboutList: [
+        "מומחיות בחינוך, בריאות, סיוע חירום ופיתוח קהילתי",
+        "גישה ממוקדת תורמים עם שקיפות פיננסית מלאה",
+        "היסטוריה מוכחה של פרויקטים קהילתיים מוצלחים",
+        "שירות חמלה ופעולות אתיות"
+      ],
+      aboutBtn: "עלינו",
+      approachTitle: "הגישה שלנו",
+      approachDesc: "אנו פועלים בתהליך מקיף שנועד למקסם השפעה ולהבטיח שמשאבים מגיעים לאלה הזקוקים להם ביותר.",
+      steps: [
+        {
+          title: "הערכת צרכים",
+          description: "אנו מתחילים במחקר מעמיק לזיהוי קהילות ויחידים הנזקקים ביותר לתמיכה.",
+          icon: "🔍"
+        },
+        {
+          title: "תכנון פרויקט",
+          description: "הצוות שלנו מפתח תוכניות מפורטות לטיפול בצרכים ספציפיים עם פתרונות ברי-קיימא.",
+          icon: "📋"
+        },
+        {
+          title: "גיוס משאבים",
+          description: "אנו אוספים תרומות, מתנדבים ושותפים כדי לאפשר את הפרויקטים שלנו.",
+          icon: "🤝"
+        },
+        {
+          title: "יישום",
+          description: "הצוות שלנו עובד ישירות עם קהילות כדי לספק סיוע ושירותי תמיכה.",
+          icon: "🚀"
+        },
+        {
+          title: "הערכת השפעה",
+          description: "אנו עוקבים אחר תוצאות ומודדים השפעה כדי להבטיח שיפור מתמשך.",
+          icon: "✅"
+        }
+      ],
+      excellenceTitle: "ההשפעה שלנו במספרים",
+      excellenceDesc: "עם ניסיון מצטבר של מעל שלושה עשורים, הצוות שלנו סיפק בהצלחה תמיכה משנה חיים לקהילות ברחבי אזורים ותחומים שונים.",
+      stats: [
+        { number: "50M+", label: "חיים שנגענו", desc: "דרך הפרויקטים והתוכניות השונות שלנו" },
+        { number: "500+", label: "פרויקטים שהושלמו", desc: "יוזמות קהילתיות מוצלחות" },
+        { number: "30+", label: "מדינות", desc: "בהן עשינו הבדל" },
+        { number: "99%", label: "שביעות רצון תורמים", desc: "בהתבסס על דוחות השפעה ומשוב" }
+      ],
 
-    learnMoreBtn: "Learn More Us",
-    whatWeOfferLabel: "WHAT WE OFFER",
-    whatWeOfferTitle: "Our charity support services",
-    whatWeOfferDesc: "We provide comprehensive support through various charitable programs designed to make a lasting impact. Our dedicated team works tirelessly to address the most pressing needs in communities worldwide, ensuring every donation creates meaningful change.",
-    allServicesBtn: "All Services",
-    
-    realImpactLabel: "Real Impact",
-    storiesTitle: "Stories of Hope",
-    storiesDesc: "See how your generosity creates real change in people's lives around the world.",
-    
-    volunteerTitle: "Become Volunteer",
-    volunteerDesc: "Join our community of dedicated volunteers and make a meaningful difference in people's lives. Together, we can create lasting change and bring hope to those who need it most.",
-    volunteerFeatures: {
-      flexible: "Flexible scheduling",
-      training: "Training provided", 
-      impact: "Make lasting impact"
+      aboutRisehandsLabel: "אודות רייזהאנדס",
+      helpingVirtueTitle: "עזרה היא סגולה גדולה עבור כל אדם",
+      helpingVirtueDesc: "נקבע במחקר שכאשר אנו מרגישים צורך לעזור, ושמישהו באמת זקוק לעזרתנו, ושלא מתרמים עלינו, אנו אכן מתערבים באופן אמין. מעניין שנמצא שאנו פחות נוטים לעזור בבחינה של הערך הפנימי של עזרה לאחרים, החוצה את הגבולות התרבותיים, הדתיים והחברתיים.",
+
+      charityCategories: {
+        education: "צדקה לחינוך",
+        pets: "צדקה לחיות מחמד",
+        medical: "צדקה לבריאות רפואית",
+        cleanWater: "צדקה למים נקיים",
+        church: "צדקה לכנסייה"
+      },
+
+      serviceCards: {
+        emergencyRelief: {
+          title: "סיוע חירום",
+          desc: "תגובה מהירה לאסונות טבע, משברים הומניטריים ומצבי חירום המספקים סיוע ותמיכה מיידיים."
+        },
+        educationSupport: {
+          title: "תמיכה בחינוך",
+          desc: "מלגות, תוכניות בניית בתי ספר ומשאבים חינוכיים כדי להבטיח שלכל ילד תהיה גישה ללמידה איכותית."
+        },
+        healthcareServices: {
+          title: "שירותי בריאות",
+          desc: "משימות רפואיות, מרפאות בריאות ותוכניות בריאות המביאות שירותי בריאות חיוניים לקהילות מוחלשות."
+        },
+        communityDevelopment: {
+          title: "פיתוח קהילתי",
+          desc: "פרויקטי פיתוח בר-קיימא, בניית תשתיות ותוכניות בניית יכולות לצמיחה קהילתית ארוכת טווח."
+        }
+      },
+
+      learnMoreBtn: "למד עלינו יותר",
+      whatWeOfferLabel: "מה אנחנו מציעים",
+      whatWeOfferTitle: "שירותי התמיכה הצדקה שלנו",
+      whatWeOfferDesc: "אנו מספקים תמיכה מקיפה באמצעות תוכניות צדקה שונות שנועדו להשפיע לאורך זמן. הצוות המסור שלנו עובד ללא לאות כדי להתמודד עם הצרכים הדחופים ביותר בקהילות ברחבי העולם, ומבטיח שכל תרומה יוצרת שינוי משמעותי.",
+      allServicesBtn: "כל השירותים",
+
+      realImpactLabel: "השפעה אמיתית",
+      storiesTitle: "סיפורים של תקווה",
+      storiesDesc: "ראה איך הנדיבות שלך יוצרת שינוי אמיתי בחיי אנשים ברחבי העולם.",
+
+      volunteerTitle: "הפוך למתנדב",
+      volunteerDesc: "הצטרף לקהילה שלנו של מתנדבים מסורים ועשה הבדל משמעותי בחיי אנשים. יחד, אנחנו יכולים ליצור שינוי מתמשך ולהביא תקווה לאלה שזקוקים לה ביותר.",
+      volunteerFeatures: {
+        flexible: "תזמון גמיש",
+        training: "הכשרה מסופקת",
+        impact: "יצירת השפעה מתמשכת"
+      },
+      joinNowBtn: "הצטרף עכשיו",
+      learnMoreBtn2: "למד עוד",
+
+      testimonialsTitle: "סיפורים של תקווה",
+      testimonialsDesc: "שמעו מהאנשים שעזרנו להם ומהשותפים שלנו על ההשפעה של העבודה שלנו והתקווה שהבאנו לקהילות.",
+
+      ctaTitle: "מוכן לעשות הבדל?",
+      ctaDesc: "הצטרף אלינו היום במשימה שלנו להביא תקווה ושינוי חיובי. התמיכה שלך יכולה לשנות חיים.",
+      ctaBtn: "תרום עכשיו",
+
+      // Additional labels
+      educationLabel: "חינוך",
+      risehandsLabel: "רייזהאנדס",
+      takeActionLabel: "בצע פעולה",
+      beforeLabel: "לפני",
+      afterLabel: "אחרי",
+
+      // Stories data
+      stories: [
+        {
+          id: 1,
+          name: "משפחת מריה",
+          location: "קניה",
+          story: "בתמיכתכם, בנינו באר מים נקיים המשרתת 500 אנשים ביום.",
+          impact: "גישה למים",
+          before: "הליכה של 5 ק\"מ למים",
+          after: "מים נקיים בקרבת מקום"
+        },
+        {
+          id: 2,
+          name: "החינוך של אחמד",
+          location: "בנגלדש",
+          story: "תוכנית מלגות אפשרה לאחמד להפוך לרופא הראשון בכפר שלו.",
+          impact: "חינוך",
+          before: "אין גישה לבית ספר",
+          after: "תואר ברפואה"
+        },
+        {
+          id: 3,
+          name: "העסק של לנה",
+          location: "אוקראינה",
+          story: "הלוואה קטנה עזרה להקים עסק קטן שמעסיק כעת 8 אנשים.",
+          impact: "צמיחה כלכלית",
+          before: "מובטלת",
+          after: "בעלת עסק"
+        }
+      ]
+    }
+  };
+  const involvementOptions = [
+    {
+      icon: "💝",
+      title: "Donate",
+      description: "Make a one-time or recurring donation to support our programs.",
+      features: ["Tax deductible", "Instant processing", "Secure payment"],
+      color: "bg-[#4B80B3]",
+      buttonText: "Donate Now"
     },
-    joinNowBtn: "Join Now",
-    learnMoreBtn2: "Learn More",
-
-    ctaTitle: "Ready to Make a Difference?",
-    ctaDesc: "Join us today in our mission to bring hope and positive change. Your support can transform lives.",
-    ctaBtn: "Donate Now",
-
-    // Additional labels
-    educationLabel: "Education",
-    risehandsLabel: "Risehands",
-    takeActionLabel: "Take Action",
-    beforeLabel: "Before",
-    afterLabel: "After",
-
-    // Stories data
-    stories: [
-      {
-        id: 1,
-        name: "Maria's Family",
-        location: "Kenya",
-        story: "With your support, we built a clean water well that serves 500 people daily.",
-        impact: "Water Access",
-        before: "5km walk for water",
-        after: "Clean water nearby"
-      },
-      {
-        id: 2,
-        name: "Ahmed's Education",
-        location: "Bangladesh",
-        story: "Scholarship program enabled Ahmed to become the first doctor in his village.",
-        impact: "Education",
-        before: "No school access",
-        after: "Medical degree"
-      },
-      {
-        id: 3,
-        name: "Lena's Business",
-        location: "Ukraine",
-        story: "Micro-loan helped start a small business that now employs 8 people.",
-        impact: "Economic Growth",
-        before: "Unemployed",
-        after: "Business owner"
-      }
-    ]
-  },
-  ar: {
-    heroTitle: "تحويل الحياة من خلال العطاء الرحيم",
-    heroDesc: "يقدم فريقنا المتفاني الدعم الأساسي والإغاثة في حالات الطوارئ والحلول المستدامة للمجتمعات المحتاجة حول العالم.",
-    getStarted: "انضم إلى مهمتنا",
-    aboutYears: "25 سنة من الخدمة",
-    aboutFirm: "عن جمعيتنا الخيرية",
-    aboutTitle: "ملتزمون بالأمل والرحمة والتغيير الدائم",
-    aboutDesc: "على مدار 25 عامًا، قدمت جمعيتنا الخيرية دعماً يغير الحياة للمجتمعات والأسر والأفراد الضعفاء. فريقنا المتحمس ملتزم بالحفاظ على أعلى معايير الشفافية والتأثير، مما يضمن أن كل تبرع يخلق تغييرًا هادفًا ومستدامًا.",
-    aboutList: [
-      "خبرة في التعليم والرعاية الصحية والإغاثة في حالات الطوارئ وتنمية المجتمع",
-      "نهج يركز على المتبرعين مع الشفافية المالية الكاملة",
-      "سجل حافل بمشاريع مجتمعية ناجحة",
-      "خدمة رحيمة وعمليات أخلاقية"
-    ],
-    aboutBtn: "معلومات عنا",
-    approachTitle: "نهجنا الخيري",
-    approachDesc: "نتبع عملية شاملة مصممة لتعظيم التأثير وضمان وصول الموارد إلى أولئك الذين يحتاجونها بشدة.",
-    steps: [
-      {
-        title: "تقييم الاحتياجات",
-        description: "نبدأ بأبحاث شاملة لتحديد المجتمعات والأفراد الأكثر احتياجًا للدعم.",
-        icon: "🔍"
-      },
-      {
-        title: "تخطيط المشروع",
-        description: "يضع فريقنا خططًا مفصلة لمعالجة الاحتياجات المحددة بحلول مستدامة.",
-        icon: "📋"
-      },
-      {
-        title: "تعبئة الموارد",
-        description: "نجمع التبرعات والمتطوعين والشركاء لجعل مشاريعنا ممكنة.",
-        icon: "🤝"
-      },
-      {
-        title: "التنفيذ",
-        description: "يعمل فريقنا مباشرة مع المجتمعات لتقديم المساعدة وخدمات الدعم.",
-        icon: "🚀"
-      },
-      {
-        title: "تقييم الأثر",
-        description: "نراقب النتائج ونقيس التأثير لضمان التحسين المستمر.",
-        icon: "✅"
-      }
-    ],
-    excellenceTitle: "تأثيرنا في الأرقام",
-    excellenceDesc: "بخبرة جماعية تزيد عن ثلاثة عقود، نجح فريقنا في تقديم دعم يغير الحياة لمجتمعات في مختلف المناطق والقضايا.",
-    stats: [
-      { number: "50M+", label: "حياة مستفيدة", desc: "من خلال مشاريعنا وبرامجنا المختلفة" },
-      { number: "500+", label: "مشروع مكتمل", desc: "مبادرات مجتمعية ناجحة" },
-      { number: "30+", label: "دولة", desc: "حققنا فيها فرقًا ملموسًا" },
-      { number: "99%", label: "رضا المتبرعين", desc: "بناءً على تقارير التأثير وملاحظاتهم" }
-    ],
-
-    aboutRisehandsLabel: "عن رايزهاندز",
-    helpingVirtueTitle: "المساعدة فضيلة عظيمة لكل إنسان",
-    helpingVirtueDesc: "لقد تم تحديد من خلال البحث أنه عندما نشعر بالرغبة في المساعدة، وأن شخصًا ما يحتاج بصدق إلى مساعدتنا، وأنه لا يتم خداعنا، فإننا نتدخل بشكل موثوق. من المثير للاهتمام أنه تم اكتشاف أننا أقل ميلاً للمساعدة في فحص القيمة الجوهرية لمساعدة الآخرين، متجاوزين الحدود الثقافية والدينية والاجتماعية.",
-    
-    charityCategories: {
-      education: "الأعمال الخيرية للتعليم",
-      pets: "الأعمال الخيرية للحيوانات الأليفة",
-      medical: "الأعمال الخيرية للصحة الطبية",
-      cleanWater: "الأعمال الخيرية للمياه النظيفة",
-      church: "الأعمال الخيرية للكنيسة"
+    {
+      icon: "🤝",
+      title: "Volunteer",
+      description: "Join our team of dedicated volunteers making a difference locally.",
+      features: ["Flexible hours", "Training provided", "Make friends"],
+      color: "bg-black",
+      buttonText: "Contact Us"
     },
-
-    serviceCards: {
-      emergencyRelief: {
-        title: "الإغاثة الطارئة",
-        desc: "استجابة سريعة للكوارث الطبيعية والأزمات الإنسانية وحالات الطوارئ لتقديم المساعدة والدعم الفوريين."
-      },
-      educationSupport: {
-        title: "دعم التعليم", 
-        desc: "منح دراسية وبرامج بناء مدارس وموارد تعليمية لضمان حصول كل طفل على تعليم جيد."
-      },
-      healthcareServices: {
-        title: "الخدمات الصحية",
-        desc: "بعثات طبية وعيادات صحية وبرامج عافية لتوفير الرعاية الصحية الأساسية للمجتمعات المحرومة."
-      },
-      communityDevelopment: {
-        title: "التنمية المجتمعية",
-        desc: "مشاريع تنمية مستدامة وبناء البنية التحتية وبرامج بناء القدرات لنمو المجتمع على المدى الطويل."
-      }
+    {
+      icon: "🏢",
+      title: "Partner",
+      description: "Corporate partnerships that create meaningful social impact.",
+      features: ["CSR opportunities", "Employee engagement", "Brand alignment"],
+      color: "bg-[#4B80B3]",
+      buttonText: "Contact Us"
     },
-
-    learnMoreBtn: "تعرف علينا أكثر",
-    whatWeOfferLabel: "ما نقدمه",
-    whatWeOfferTitle: "خدمات الدعم الخيري لدينا",
-    whatWeOfferDesc: "نحن نقدم دعمًا شاملاً من خلال برامج خيرية متنوعة مصممة لإحداث تأثير دائم. يعمل فريقنا المتفاني بلا كلل لمعالجة أهم الاحتياجات في المجتمعات في جميع أنحاء العالم، مما يضمن أن كل تبرع يخلق تغييرًا ذا معنى.",
-    allServicesBtn: "جميع الخدمات",
-    
-    realImpactLabel: "تأثير حقيقي",
-    storiesTitle: "قصص الأمل",
-    storiesDesc: "شاهد كيف يخلق كرمك تغييرًا حقيقيًا في حياة الناس حول العالم.",
-    
-    volunteerTitle: "كن متطوعًا",
-    volunteerDesc: "انضم إلى مجتمعنا من المتطوعين المتفانين واصنع فرقًا ذا معنى في حياة الناس. معًا، يمكننا إحداث تغيير دائم وجلب الأمل لأولئك الذين يحتاجونه أكثر.",
-    volunteerFeatures: {
-      flexible: "جدولة مرنة",
-      training: "تدريب مقدم",
-      impact: "إحداث تأثير دائم"
-    },
-    joinNowBtn: "انضم الآن",
-    learnMoreBtn2: "تعرف أكثر",
-
-    ctaTitle: "مستعد لصنع فرق؟",
-    ctaDesc: "انضم إلينا اليوم في مهمتنا لجلب الأمل والتغيير الإيجابي. دعمك يمكن أن يحول حياة.",
-    ctaBtn: "تبرع الآن",
-
-    // Additional labels
-    educationLabel: "التعليم",
-    risehandsLabel: "رايزهاندز",
-    takeActionLabel: "اتخذ إجراء",
-    beforeLabel: "قبل",
-    afterLabel: "بعد",
-
-    // Stories data
-    stories: [
-      {
-        id: 1,
-        name: "عائلة ماريا",
-        location: "كينيا",
-        story: "بدعمكم، بنينا بئر مياه نظيفة يخدم 500 شخص يومياً.",
-        impact: "الوصول للمياه",
-        before: "مشي 5 كم للمياه",
-        after: "مياه نظيفة قريبة"
-      },
-      {
-        id: 2,
-        name: "تعليم أحمد",
-        location: "بنغلاديش",
-        story: "برنامج المنح الدراسية مكّن أحمد من أن يصبح أول طبيب في قريته.",
-        impact: "التعليم",
-        before: "لا يوجد وصول للمدرسة",
-        after: "شهادة طبية"
-      },
-      {
-        id: 3,
-        name: "مشروع لينا",
-        location: "أوكرانيا",
-        story: "القرض الصغير ساعد في بدء مشروع صغير يوظف الآن 8 أشخاص.",
-        impact: "النمو الاقتصادي",
-        before: "عاطلة عن العمل",
-        after: "صاحبة مشروع"
-      }
-    ]
-  },
-  he: {
-    heroTitle: "משנים חיים דרך חמלה ונתינה",
-    heroDesc: "הצוות המסור שלנו מספק תמיכה חיונית, סיוע חירום ופתרונות ברי-קיימא לקהילות נזקקות ברחבי העולם.",
-    getStarted: "הצטרף למשימה שלנו",
-    aboutYears: "25 שנות שירות",
-    aboutFirm: "על העמותה שלנו",
-    aboutTitle: "מחויבים לתקווה, חמלה ושינוי מתמשך",
-    aboutDesc: "במשך יותר מ-25 שנה, העמותה שלנו סיפקה תמיכה משנה חיים לקהילות, משפחות ויחידים פגיעים. הצוות הנלהב שלנו מחויב לשמירה על הסטנדרטים הגבוהים ביותר של שקיפות והשפעה, כדי להבטיח שכל תרומה יוצרת שינוי משמעותי ובר-קיימא.",
-    aboutList: [
-      "מומחיות בחינוך, בריאות, סיוע חירום ופיתוח קהילתי",
-      "גישה ממוקדת תורמים עם שקיפות פיננסית מלאה",
-      "היסטוריה מוכחה של פרויקטים קהילתיים מוצלחים",
-      "שירות חמלה ופעולות אתיות"
-    ],
-    aboutBtn: "עלינו",
-    approachTitle: "הגישה שלנו",
-    approachDesc: "אנו פועלים בתהליך מקיף שנועד למקסם השפעה ולהבטיח שמשאבים מגיעים לאלה הזקוקים להם ביותר.",
-    steps: [
-      {
-        title: "הערכת צרכים",
-        description: "אנו מתחילים במחקר מעמיק לזיהוי קהילות ויחידים הנזקקים ביותר לתמיכה.",
-        icon: "🔍"
-      },
-      {
-        title: "תכנון פרויקט",
-        description: "הצוות שלנו מפתח תוכניות מפורטות לטיפול בצרכים ספציפיים עם פתרונות ברי-קיימא.",
-        icon: "📋"
-      },
-      {
-        title: "גיוס משאבים",
-        description: "אנו אוספים תרומות, מתנדבים ושותפים כדי לאפשר את הפרויקטים שלנו.",
-        icon: "🤝"
-      },
-      {
-        title: "יישום",
-        description: "הצוות שלנו עובד ישירות עם קהילות כדי לספק סיוע ושירותי תמיכה.",
-        icon: "🚀"
-      },
-      {
-        title: "הערכת השפעה",
-        description: "אנו עוקבים אחר תוצאות ומודדים השפעה כדי להבטיח שיפור מתמשך.",
-        icon: "✅"
-      }
-    ],
-    excellenceTitle: "ההשפעה שלנו במספרים",
-    excellenceDesc: "עם ניסיון מצטבר של מעל שלושה עשורים, הצוות שלנו סיפק בהצלחה תמיכה משנה חיים לקהילות ברחבי אזורים ותחומים שונים.",
-    stats: [
-      { number: "50M+", label: "חיים שנגענו", desc: "דרך הפרויקטים והתוכניות השונות שלנו" },
-      { number: "500+", label: "פרויקטים שהושלמו", desc: "יוזמות קהילתיות מוצלחות" },
-      { number: "30+", label: "מדינות", desc: "בהן עשינו הבדל" },
-      { number: "99%", label: "שביעות רצון תורמים", desc: "בהתבסס על דוחות השפעה ומשוב" }
-    ],
-
-    aboutRisehandsLabel: "אודות רייזהאנדס",
-    helpingVirtueTitle: "עזרה היא סגולה גדולה עבור כל אדם",
-    helpingVirtueDesc: "נקבע במחקר שכאשר אנו מרגישים צורך לעזור, ושמישהו באמת זקוק לעזרתנו, ושלא מתרמים עלינו, אנו אכן מתערבים באופן אמין. מעניין שנמצא שאנו פחות נוטים לעזור בבחינה של הערך הפנימי של עזרה לאחרים, החוצה את הגבולות התרבותיים, הדתיים והחברתיים.",
-    
-    charityCategories: {
-      education: "צדקה לחינוך",
-      pets: "צדקה לחיות מחמד",
-      medical: "צדקה לבריאות רפואית",
-      cleanWater: "צדקה למים נקיים",
-      church: "צדקה לכנסייה"
-    },
-
-    serviceCards: {
-      emergencyRelief: {
-        title: "סיוע חירום",
-        desc: "תגובה מהירה לאסונות טבע, משברים הומניטריים ומצבי חירום המספקים סיוע ותמיכה מיידיים."
-      },
-      educationSupport: {
-        title: "תמיכה בחינוך", 
-        desc: "מלגות, תוכניות בניית בתי ספר ומשאבים חינוכיים כדי להבטיח שלכל ילד תהיה גישה ללמידה איכותית."
-      },
-      healthcareServices: {
-        title: "שירותי בריאות",
-        desc: "משימות רפואיות, מרפאות בריאות ותוכניות בריאות המביאות שירותי בריאות חיוניים לקהילות מוחלשות."
-      },
-      communityDevelopment: {
-        title: "פיתוח קהילתי",
-        desc: "פרויקטי פיתוח בר-קיימא, בניית תשתיות ותוכניות בניית יכולות לצמיחה קהילתית ארוכת טווח."
-      }
-    },
-
-    learnMoreBtn: "למד עלינו יותר",
-    whatWeOfferLabel: "מה אנחנו מציעים",
-    whatWeOfferTitle: "שירותי התמיכה הצדקה שלנו",
-    whatWeOfferDesc: "אנו מספקים תמיכה מקיפה באמצעות תוכניות צדקה שונות שנועדו להשפיע לאורך זמן. הצוות המסור שלנו עובד ללא לאות כדי להתמודד עם הצרכים הדחופים ביותר בקהילות ברחבי העולם, ומבטיח שכל תרומה יוצרת שינוי משמעותי.",
-    allServicesBtn: "כל השירותים",
-    
-    realImpactLabel: "השפעה אמיתית",
-    storiesTitle: "סיפורים של תקווה",
-    storiesDesc: "ראה איך הנדיבות שלך יוצרת שינוי אמיתי בחיי אנשים ברחבי העולם.",
-    
-    volunteerTitle: "הפוך למתנדב",
-    volunteerDesc: "הצטרף לקהילה שלנו של מתנדבים מסורים ועשה הבדל משמעותי בחיי אנשים. יחד, אנחנו יכולים ליצור שינוי מתמשך ולהביא תקווה לאלה שזקוקים לה ביותר.",
-    volunteerFeatures: {
-      flexible: "תזמון גמיש",
-      training: "הכשרה מסופקת",
-      impact: "יצירת השפעה מתמשכת"
-    },
-    joinNowBtn: "הצטרף עכשיו",
-    learnMoreBtn2: "למד עוד",
-
-    testimonialsTitle: "סיפורים של תקווה",
-    testimonialsDesc: "שמעו מהאנשים שעזרנו להם ומהשותפים שלנו על ההשפעה של העבודה שלנו והתקווה שהבאנו לקהילות.",
-
-    ctaTitle: "מוכן לעשות הבדל?",
-    ctaDesc: "הצטרף אלינו היום במשימה שלנו להביא תקווה ושינוי חיובי. התמיכה שלך יכולה לשנות חיים.",
-    ctaBtn: "תרום עכשיו",
-
-    // Additional labels
-    educationLabel: "חינוך",
-    risehandsLabel: "רייזהאנדס",
-    takeActionLabel: "בצע פעולה",
-    beforeLabel: "לפני",
-    afterLabel: "אחרי",
-
-    // Stories data
-    stories: [
-      {
-        id: 1,
-        name: "משפחת מריה",
-        location: "קניה",
-        story: "בתמיכתכם, בנינו באר מים נקיים המשרתת 500 אנשים ביום.",
-        impact: "גישה למים",
-        before: "הליכה של 5 ק\"מ למים",
-        after: "מים נקיים בקרבת מקום"
-      },
-      {
-        id: 2,
-        name: "החינוך של אחמד",
-        location: "בנגלדש",
-        story: "תוכנית מלגות אפשרה לאחמד להפוך לרופא הראשון בכפר שלו.",
-        impact: "חינוך",
-        before: "אין גישה לבית ספר",
-        after: "תואר ברפואה"
-      },
-      {
-        id: 3,
-        name: "העסק של לנה",
-        location: "אוקראינה",
-        story: "הלוואה קטנה עזרה להקים עסק קטן שמעסיק כעת 8 אנשים.",
-        impact: "צמיחה כלכלית",
-        before: "מובטלת",
-        after: "בעלת עסק"
-      }
-    ]
-  }
-};
-const involvementOptions = [
-  {
-    icon: "💝",
-    title: "Donate",
-    description: "Make a one-time or recurring donation to support our programs.",
-    features: ["Tax deductible", "Instant processing", "Secure payment"],
-    color: "bg-[#4B80B3]",
-    buttonText: "Donate Now"
-  },
-  {
-    icon: "🤝",
-    title: "Volunteer",
-    description: "Join our team of dedicated volunteers making a difference locally.",
-    features: ["Flexible hours", "Training provided", "Make friends"],
-    color: "bg-black",
-    buttonText: "Contact Us"
-  },
-  {
-    icon: "🏢",
-    title: "Partner",
-    description: "Corporate partnerships that create meaningful social impact.",
-    features: ["CSR opportunities", "Employee engagement", "Brand alignment"],
-    color: "bg-[#4B80B3]",
-    buttonText: "Contact Us"
-  },
-  {
-    icon: "📢",
-    title: "Advocate",
-    description: "Use your voice to spread awareness and inspire others to act.",
-    features: ["Social media kits", "Event resources", "Community building"],
-    color: "bg-black",
-    buttonText: "Contact Us"
-  }
-];
+    {
+      icon: "📢",
+      title: "Advocate",
+      description: "Use your voice to spread awareness and inspire others to act.",
+      features: ["Social media kits", "Event resources", "Community building"],
+      color: "bg-black",
+      buttonText: "Contact Us"
+    }
+  ];
 
   const t = translations[language] || translations.en;
 
@@ -610,7 +610,7 @@ const involvementOptions = [
           <div className="absolute top-4 left-4 bg-black/80 text-white p-2 rounded text-sm">
             Current Language: {language} | Title: {t.heroTitle.substring(0, 20)}...
           </div>
-          
+
           <motion.h1
             className="text-4xl md:text-6xl font-bold leading-tight text-white drop-shadow-lg mb-6"
             initial={{ opacity: 0, y: -40 }}
@@ -650,7 +650,7 @@ const involvementOptions = [
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Left side - Images */}
-            <motion.div 
+            <motion.div
               className="relative"
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -660,7 +660,7 @@ const involvementOptions = [
               <div className="grid grid-cols-1 gap-6">
                 {/* Main large image */}
                 <div className="relative">
-                  <img 
+                  <img
                     src="https://images.unsplash.com/photo-1497486751825-1233686d5d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
                     alt="Education"
                     className="w-full h-72 md:h-80 lg:h-96 object-cover rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:scale-105"
@@ -670,10 +670,10 @@ const involvementOptions = [
                   </div>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent rounded-3xl"></div>
                 </div>
-                
+
                 {/* Secondary image */}
                 <div className="relative">
-                  <img 
+                  <img
                     src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
                     alt="Community Support"
                     className="w-full h-64 md:h-72 object-cover rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:scale-105"
@@ -684,10 +684,10 @@ const involvementOptions = [
                   <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent rounded-3xl"></div>
                 </div>
               </div>
-              
+
               {/* Enhanced decorative elements */}
               <div className="absolute -top-6 -left-6 w-24 h-24 bg-[#4B80B3] rounded-full opacity-20 animate-pulse"></div>
-              <div className="absolute -bottom-6 -right-6 w-20 h-20 bg-[#4B80B3] rounded-full opacity-30 animate-pulse" style={{animationDelay: '1s'}}></div>
+              <div className="absolute -bottom-6 -right-6 w-20 h-20 bg-[#4B80B3] rounded-full opacity-30 animate-pulse" style={{ animationDelay: '1s' }}></div>
               <div className="absolute top-1/2 -right-4 w-16 h-16 bg-black rounded-full opacity-20 animate-bounce"></div>
             </motion.div>
 
@@ -707,11 +707,11 @@ const involvementOptions = [
                   </div>
                   <span className="text-[#4B80B3] font-semibold text-lg">{t.aboutRisehandsLabel}</span>
                 </div>
-                
+
                 <h2 className="text-4xl md:text-5xl font-bold text-black dark:text-white mb-6 leading-tight">
                   {t.helpingVirtueTitle}
                 </h2>
-                
+
                 <p className="text-black dark:text-white text-lg leading-relaxed mb-8">
                   {t.helpingVirtueDesc}
                 </p>
@@ -725,35 +725,35 @@ const involvementOptions = [
                   </div>
                   <span className="text-black dark:text-white font-medium">{t.charityCategories.education}</span>
                 </div>
-                
+
                 <div className="flex items-center space-x-3 p-3 bg-white dark:bg-black rounded-xl shadow-sm hover:shadow-md transition-shadow">
                   <div className="w-8 h-8 bg-[#4B80B3] rounded-full flex items-center justify-center flex-shrink-0">
                     <span className="text-white text-sm">🐕</span>
                   </div>
                   <span className="text-black dark:text-white font-medium">{t.charityCategories.pets}</span>
                 </div>
-                
+
                 <div className="flex items-center space-x-3 p-3 bg-white dark:bg-black rounded-xl shadow-sm hover:shadow-md transition-shadow">
                   <div className="w-8 h-8 bg-[#4B80B3] rounded-full flex items-center justify-center flex-shrink-0">
                     <span className="text-white text-sm">🏥</span>
                   </div>
                   <span className="text-black dark:text-white font-medium">{t.charityCategories.medical}</span>
                 </div>
-                
+
                 <div className="flex items-center space-x-3 p-3 bg-white dark:bg-black rounded-xl shadow-sm hover:shadow-md transition-shadow">
                   <div className="w-8 h-8 bg-[#4B80B3] rounded-full flex items-center justify-center flex-shrink-0">
                     <span className="text-white text-sm">📚</span>
                   </div>
                   <span className="text-black dark:text-white font-medium">{t.charityCategories.education}</span>
                 </div>
-                
+
                 <div className="flex items-center space-x-3 p-3 bg-white dark:bg-black rounded-xl shadow-sm hover:shadow-md transition-shadow">
                   <div className="w-8 h-8 bg-[#4B80B3] rounded-full flex items-center justify-center flex-shrink-0">
                     <span className="text-white text-sm">💧</span>
                   </div>
                   <span className="text-black dark:text-white font-medium">{t.charityCategories.cleanWater}</span>
                 </div>
-                
+
                 <div className="flex items-center space-x-3 p-3 bg-white dark:bg-black rounded-xl shadow-sm hover:shadow-md transition-shadow">
                   <div className="w-8 h-8 bg-[#4B80B3] rounded-full flex items-center justify-center flex-shrink-0">
                     <span className="text-white text-sm">⛪</span>
@@ -764,7 +764,7 @@ const involvementOptions = [
 
               {/* Learn More Button */}
               <div className="pt-4">
-                <button 
+                <button
                   className="bg-[#4B80B3] hover:bg-black text-white font-bold py-3 px-8 rounded-xl transition-colors duration-300 flex items-center space-x-2"
                   onClick={() => navigate('/about')}
                 >
@@ -781,7 +781,7 @@ const involvementOptions = [
       <section className="w-full py-20 bg-white dark:bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-start">
-            
+
             {/* Left side - Content */}
             <motion.div
               className="lg:col-span-2 space-y-6"
@@ -801,7 +801,7 @@ const involvementOptions = [
               </div>
 
               <div className="pt-4">
-                <button 
+                <button
                   className="bg-[#4B80B3] hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-xl transition-colors duration-300 flex items-center space-x-2"
                   onClick={() => navigate('/services')}
                 >
@@ -814,7 +814,7 @@ const involvementOptions = [
                 <button className="flex items-center space-x-3 text-[#4B80B3] hover:text-blue-700 font-semibold transition-colors duration-300">
                   <div className="w-12 h-12 bg-[#4B80B3] rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors duration-300">
                     <svg className="w-5 h-5 text-white ml-0.5" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"/>
+                      <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
                     </svg>
                   </div>
                   <span className="text-lg">VIDEO SHOWCASE</span>
@@ -823,16 +823,16 @@ const involvementOptions = [
             </motion.div>
 
             {/* Right side - Service Cards Grid */}
-            <motion.div 
+            <motion.div
               className="lg:col-span-3 grid grid-cols-1 md:grid-cols-2 gap-6"
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, staggerChildren: 0.2 }}
               viewport={{ once: true }}
             >
-              
+
               {/* Emergency Relief Card */}
-              <motion.div 
+              <motion.div
                 className="bg-[#4B80B3] p-8 rounded-2xl text-white shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -851,7 +851,7 @@ const involvementOptions = [
               </motion.div>
 
               {/* Education Support Card */}
-              <motion.div 
+              <motion.div
                 className="bg-white dark:bg-black p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 border border-black dark:border-white"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -870,7 +870,7 @@ const involvementOptions = [
               </motion.div>
 
               {/* Healthcare Services Card */}
-              <motion.div 
+              <motion.div
                 className="bg-white dark:bg-black p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 border border-black dark:border-white"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -889,7 +889,7 @@ const involvementOptions = [
               </motion.div>
 
               {/* Community Development Card */}
-              <motion.div 
+              <motion.div
                 className="bg-[#4B80B3] p-8 rounded-2xl text-white shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -912,8 +912,8 @@ const involvementOptions = [
         </div>
       </section>
 
-      
-      
+
+
 
       <section className="py-20 bg-white dark:bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -935,7 +935,7 @@ const involvementOptions = [
             {storiesWithImages.map((story) => (
               <div key={story.id} className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 group dark:bg-gray-900">
                 {/* Image */}
-                <div className="relative h-64 overflow-hidden">
+                <div className="relative h-70 overflow-hidden">
                   <img
                     src={story.image}
                     alt={story.name}
@@ -1022,7 +1022,7 @@ const involvementOptions = [
                   ))}
                 </ul>
 
-                <button 
+                <button
                   className={`px-6 py-3 ${option.color} text-white font-semibold rounded-xl hover:shadow-lg transition-all duration-300 transform hover:scale-105`}
                   onClick={() => {
                     if (option.title === "Donate") {
@@ -1049,14 +1049,14 @@ const involvementOptions = [
       <section className="relative py-10 overflow-hidden">
         {/* Background Image with Overlay */}
         <div className="absolute inset-0">
-          <img 
-            src={leena}
+          <img
+            src={volimage}
             alt="Volunteers in action"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-[#4B80B3]/80"></div>
+          <div className="absolute inset-0 bg-[#4B80B3]/40"></div>
         </div>
-        
+
         {/* Content */}
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
@@ -1068,11 +1068,11 @@ const involvementOptions = [
             <h2 className="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
               {t.volunteerTitle.split(' ')[0]} <span className="text-black">{t.volunteerTitle.split(' ').slice(1).join(' ')}</span>
             </h2>
-            
+
             <p className="text-xl md:text-2xl text-white mb-8 max-w-2xl mx-auto leading-relaxed">
               {t.volunteerDesc}
             </p>
-            
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
               <div className="flex items-center space-x-3 text-white">
                 <div className="w-6 h-6 bg-white rounded-full flex items-center justify-center">
@@ -1082,7 +1082,7 @@ const involvementOptions = [
                 </div>
                 <span className="font-medium">Flexible scheduling</span>
               </div>
-              
+
               <div className="flex items-center space-x-3 text-white">
                 <div className="w-6 h-6 bg-white rounded-full flex items-center justify-center">
                   <svg className="w-4 h-4 text-[#4B80B3]" fill="currentColor" viewBox="0 0 20 20">
@@ -1091,7 +1091,7 @@ const involvementOptions = [
                 </div>
                 <span className="font-medium">Training provided</span>
               </div>
-              
+
               <div className="flex items-center space-x-3 text-white">
                 <div className="w-6 h-6 bg-white rounded-full flex items-center justify-center">
                   <svg className="w-4 h-4 text-[#4B80B3]" fill="currentColor" viewBox="0 0 20 20">
@@ -1101,27 +1101,27 @@ const involvementOptions = [
                 <span className="font-medium">Make lasting impact</span>
               </div>
             </div>
-            
+
             {/* Volunteer Button */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button 
+              <button
                 className="px-8 py-4 bg-white text-[#4B80B3] font-bold text-lg rounded-xl hover:bg-black hover:text-white transition-all duration-300 transform hover:scale-105 shadow-lg"
                 onClick={() => navigate('/volunteer')}
               >
                 {t.joinNowBtn}
               </button>
-              
-              <button 
+
+              <button
                 className="px-8 py-4 bg-transparent border-2 border-white text-white font-bold text-lg rounded-xl hover:bg-white hover:text-[#4B80B3] transition-all duration-300 transform hover:scale-105"
                 onClick={() => navigate('/about')}
               >
                 {t.learnMoreBtn2}
               </button>
             </div>
-            
+
             {/* Statistics */}
             <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
-              <motion.div 
+              <motion.div
                 className="text-center"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -1131,8 +1131,8 @@ const involvementOptions = [
                 <div className="text-4xl md:text-5xl font-bold text-white mb-2">500+</div>
                 <div className="text-white text-lg">Active Volunteers</div>
               </motion.div>
-              
-              <motion.div 
+
+              <motion.div
                 className="text-center"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -1142,8 +1142,8 @@ const involvementOptions = [
                 <div className="text-4xl md:text-5xl font-bold text-white mb-2">50+</div>
                 <div className="text-white text-lg">Community Programs</div>
               </motion.div>
-              
-              <motion.div 
+
+              <motion.div
                 className="text-center"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -1156,7 +1156,7 @@ const involvementOptions = [
             </div>
           </motion.div>
         </div>
-        
+
         {/* Decorative Elements */}
         <div className="absolute top-10 left-10 w-32 h-32 bg-white/10 rounded-full blur-xl"></div>
         <div className="absolute bottom-10 right-10 w-40 h-40 bg-black/20 rounded-full blur-xl"></div>

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import logo from "../images/logo.png";
-import image from "../images/law-bg.jpg";
+
 const translations = {
   en: {
     // welcome: "Welcome to",
@@ -143,12 +143,12 @@ const Welcome = () => {
       return;
     }
 
-  users.push(signUpData);
-  localStorage.setItem("users", JSON.stringify(users));
-  setError("");
-  setSignUpData({ firstName: "", lastName: "", email: "", password: "" });
-  setIsLogin(true);
-  navigate("/welcome");
+    users.push(signUpData);
+    localStorage.setItem("users", JSON.stringify(users));
+    setError("");
+    setSignUpData({ firstName: "", lastName: "", email: "", password: "" });
+    setIsLogin(true);
+    navigate("/welcome");
   };
 
   const handleForgotPasswordChange = (e) => {
@@ -172,7 +172,7 @@ const Welcome = () => {
 
   return (
     <>
-      <div className="min-h-screen w-full flex items-center justify-center font-sans" style={{backgroundColor: '#4B80B3'}}>
+      <div className="min-h-screen w-full flex items-center justify-center font-sans" style={{ backgroundColor: '#4B80B3' }}>
         <div className="w-full max-w-md bg-black/20 rounded-2xl shadow-2xl border-2 border-[#4B80B3] p-4 sm:p-8 flex flex-col justify-center items-stretch backdrop-blur mx-4 sm:mx-0">
           <div className="mb-4 sm:mb-6 text-center">
             <div className="flex flex-col items-center gap-2">
@@ -203,7 +203,7 @@ const Welcome = () => {
                 <form onSubmit={handleLoginSubmit} className="flex flex-col gap-3 sm:gap-4">
                   <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-3 sm:mb-4">
                     <label htmlFor="login-username" className="font-bold text-white text-base sm:text-lg sm:min-w-[100px]">
-                      Username <span className="text-black">*</span>
+                      Username <span className="text-red-500">*</span>
                     </label>
                     <input
                       id="login-username"
@@ -218,7 +218,7 @@ const Welcome = () => {
                   </div>
                   <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-3 sm:mb-4">
                     <label htmlFor="login-password" className="font-bold text-white text-base sm:text-lg sm:min-w-[100px]">
-                      Password <span className="text-black">*</span>
+                      Password <span className="text-red-500">*</span>
                     </label>
                     <input
                       id="login-password"
@@ -247,7 +247,7 @@ const Welcome = () => {
                   <p className="text-center text-white font-bold mt-3 sm:mt-4 text-sm sm:text-base">
                     {t.dontHave.split('Sign Up')[0]}
                     <span
-                      className="text-[#4B80B3] underline cursor-pointer ml-1 hover:text-black transition-colors"
+                      className="text-white underline cursor-pointer ml-1 hover:text-black transition-colors"
                       onClick={() => {
                         setError("");
                         setIsLogin(false);
@@ -323,7 +323,7 @@ const Welcome = () => {
                   <p className="text-center text-white font-bold mt-3 sm:mt-4 text-sm sm:text-base">
                     {t.alreadyHave.split('welcome')[0]}
                     <span
-                      className="text-[#4B80B3] underline cursor-pointer ml-1 hover:text-black transition-colors"
+                      className="text-white underline cursor-pointer ml-1 hover:text-black transition-colors"
                       onClick={() => {
                         setError("");
                         setIsLogin(true);
@@ -464,4 +464,4 @@ const styles = {
   },
 };
 
-export default Welcome;
+export default Welcome;

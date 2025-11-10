@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import video from "../images/home2-law.mp4";
+import video from "../images/vdeo745.mp4";
 import { useNavigate } from "react-router-dom";
 import school from "../images/school.jpg";
 import water from "../images/water.jpg";
 import medical from "../images/medical.jpg";
-import digital from "../images/digital.jpg";	
+import digital from "../images/digital.jpg";
 import training from "../images/training.jpg";
 import drive from "../images/drive.jpg";
 // Translation object for all static content
@@ -902,8 +902,8 @@ const Home2 = () => {
 											{typeof item.image === 'string' && item.image.length <= 2 ? (
 												<span className="text-white">{item.image}</span>
 											) : (
-												<img 
-													src={item.image} 
+												<img
+													src={item.image}
 													alt={item.title}
 													className="w-full h-full object-cover"
 												/>
@@ -920,8 +920,8 @@ const Home2 = () => {
 													{typeof item.image === 'string' && item.image.length <= 2 ? (
 														<span style={{ color: '#4B80B3' }}>{item.image}</span>
 													) : (
-														<img 
-															src={item.image} 
+														<img
+															src={item.image}
 															alt={item.title}
 															className="w-8 h-8 rounded-full object-cover"
 														/>
@@ -966,103 +966,133 @@ const Home2 = () => {
 				{/* Three Panel Charity Section */}
 				<section className="py-20 bg-white dark:bg-black">
 					<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-						<div className="grid grid-cols-1 lg:grid-cols-3 gap-0 rounded-2xl overflow-hidden shadow-2xl">
-
+						<motion.div
+							className="grid grid-cols-1 lg:grid-cols-3 gap-8 rounded-2xl overflow-visible shadow-2xl"
+							initial="hidden"
+							whileInView="visible"
+							variants={{
+								hidden: {},
+								visible: {
+									transition: { staggerChildren: 0.3 }
+								}
+							}}
+							viewport={{ once: true }}
+						>
 							{/* Crowdfunding Panel */}
 							<motion.div
-								className="relative bg-[#4B80B3] text-white p-12 flex flex-col justify-center items-center text-center min-h-[400px]"
-								initial={{ opacity: 0, x: -50 }}
-								whileInView={{ opacity: 1, x: 0 }}
-								transition={{ duration: 0.8, delay: 0.1 }}
-								viewport={{ once: true }}
+								className="relative bg-gradient-to-br from-[#4B80B3] to-[#2c4a6e] text-white p-12 flex flex-col justify-center items-center text-center min-h-[400px] rounded-2xl shadow-xl"
+								variants={{
+									hidden: { opacity: 0, y: 60, scale: 0.95 },
+									visible: { opacity: 1, y: 0, scale: 1 }
+								}}
+								transition={{ type: 'spring', stiffness: 80, damping: 18 }}
+								whileHover={{ scale: 1.03, boxShadow: '0 8px 32px #4B80B3' }}
 							>
-								<div className="mb-6">
+								<motion.div
+									initial={{ rotate: -8 }}
+									animate={{ rotate: 0 }}
+									transition={{ duration: 0.8 }}
+									className="mb-6"
+								>
 									<h3 className="text-3xl font-bold mb-6 tracking-wide">CROWDFUNDING</h3>
 									<div className="w-16 h-1 bg-white mx-auto mb-6"></div>
-								</div>
-
-								<p className="text-lg leading-relaxed mb-8 max-w-xs">
+								</motion.div>
+								<motion.p
+									className="text-lg leading-relaxed mb-8 max-w-xs"
+									initial={{ opacity: 0, y: 20 }}
+									animate={{ opacity: 1, y: 0 }}
+									transition={{ duration: 0.7, delay: 0.2 }}
+								>
 									All our charity activities will be better with your donation. We can fundraising from anywhere that you can.
-								</p>
-
-								<button
-									className="px-8 py-3 border-2 border-white text-white font-semibold rounded-full hover:bg-white hover:text-[#4B80B3] transition-all duration-300 transform hover:scale-105"
+								</motion.p>
+								<motion.button
+									className="px-8 py-3 border-2 border-white text-white font-semibold rounded-full hover:bg-white hover:text-[#4B80B3] transition-all duration-300 transform hover:scale-105 shadow-lg"
+									whileHover={{ scale: 1.08, backgroundColor: '#fff', color: '#4B80B3' }}
 									onClick={() => navigate('/donate')}
 								>
 									Learn More
-								</button>
-
-								{/* Decorative Elements */}
-								<div className="absolute top-6 right-6 w-20 h-20 border border-white/20 rounded-full"></div>
-								<div className="absolute bottom-6 left-6 w-12 h-12 border border-white/20 rounded-full"></div>
+								</motion.button>
+								{/* Decorative Animated Circles */}
+								<motion.div className="absolute top-6 right-6 w-20 h-20 border-2 border-white/30 rounded-full" animate={{ scale: [1, 1.15, 1] }} transition={{ repeat: Infinity, duration: 2 }}></motion.div>
+								<motion.div className="absolute bottom-6 left-6 w-12 h-12 border-2 border-white/30 rounded-full" animate={{ scale: [1, 1.2, 1] }} transition={{ repeat: Infinity, duration: 2.5 }}></motion.div>
 							</motion.div>
 
-							{/* Volunteer Panel - Center without Play Button */}
+							{/* Volunteer Panel - Center with Fade and Parallax */}
 							<motion.div
-								className="relative bg-black text-white p-12 flex flex-col justify-center items-center text-center min-h-[400px] overflow-hidden"
-								initial={{ opacity: 0, y: 50 }}
-								whileInView={{ opacity: 1, y: 0 }}
-								transition={{ duration: 0.8, delay: 0.2 }}
-								viewport={{ once: true }}
+								className="relative bg-black text-white p-12 flex flex-col justify-center items-center text-center min-h-[400px] overflow-hidden rounded-2xl shadow-xl"
+								variants={{
+									hidden: { opacity: 0, scale: 0.95 },
+									visible: { opacity: 1, scale: 1 }
+								}}
+								transition={{ type: 'spring', stiffness: 80, damping: 18 }}
+								whileHover={{ scale: 1.03, boxShadow: '0 8px 32px #000' }}
 							>
-								{/* Background Image */}
-								<div className="absolute inset-0">
+								{/* Parallax Background Image */}
+								<motion.div className="absolute inset-0" style={{ zIndex: 1 }} initial={{ scale: 1.1 }} whileHover={{ scale: 1.15 }} transition={{ duration: 1 }}>
 									<img
 										src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
 										alt="Volunteer"
-										className="w-full h-full object-cover"
+										className="w-full h-full object-cover rounded-2xl"
 									/>
-									<div className="absolute inset-0 bg-black/60"></div>
-								</div>
-
+									<div className="absolute inset-0 bg-black/60 rounded-2xl"></div>
+								</motion.div>
 								<div className="relative z-10">
-									<div className="mb-6">
+									<motion.div className="mb-6" initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.7 }}>
 										<h3 className="text-2xl font-light italic mb-4">How to become</h3>
 										<h2 className="text-4xl font-bold mb-6">Volunteer</h2>
-									</div>
-
-									<p className="text-lg text-white mb-8 max-w-xs leading-relaxed">
+									</motion.div>
+									<motion.p className="text-lg text-white mb-8 max-w-xs leading-relaxed" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.2 }}>
 										Join our community of dedicated volunteers and make a meaningful difference in lives around the world.
-									</p>
-
-									<button
-										className="px-8 py-3 border-2 border-white text-white font-semibold rounded-full hover:bg-white hover:text-black transition-all duration-300 transform hover:scale-105"
+									</motion.p>
+									<motion.button
+										className="px-8 py-3 border-2 border-white text-white font-semibold rounded-full hover:bg-white hover:text-black transition-all duration-300 transform hover:scale-105 shadow-lg"
+										whileHover={{ scale: 1.08, backgroundColor: '#fff', color: '#000' }}
 										onClick={() => navigate('/volunteer')}
 									>
 										Join Now
-									</button>
+									</motion.button>
 								</div>
 							</motion.div>
 
 							{/* Scholarship Panel */}
 							<motion.div
-								className="relative bg-[#4B80B3] text-white p-12 flex flex-col justify-center items-center text-center min-h-[400px]"
-								initial={{ opacity: 0, x: 50 }}
-								whileInView={{ opacity: 1, x: 0 }}
-								transition={{ duration: 0.8, delay: 0.3 }}
-								viewport={{ once: true }}
+								className="relative bg-gradient-to-br from-[#4B80B3] to-[#2c4a6e] text-white p-12 flex flex-col justify-center items-center text-center min-h-[400px] rounded-2xl shadow-xl"
+								variants={{
+									hidden: { opacity: 0, y: 60, scale: 0.95 },
+									visible: { opacity: 1, y: 0, scale: 1 }
+								}}
+								transition={{ type: 'spring', stiffness: 80, damping: 18 }}
+								whileHover={{ scale: 1.03, boxShadow: '0 8px 32px #4B80B3' }}
 							>
-								<div className="mb-6">
+								<motion.div
+									initial={{ rotate: 8 }}
+									animate={{ rotate: 0 }}
+									transition={{ duration: 0.8 }}
+									className="mb-6"
+								>
 									<h3 className="text-3xl font-bold mb-6 tracking-wide">GIVE SCHOLARSHIP</h3>
 									<div className="w-16 h-1 bg-white mx-auto mb-6"></div>
-								</div>
-
-								<p className="text-lg leading-relaxed mb-8 max-w-xs">
+								</motion.div>
+								<motion.p
+									className="text-lg leading-relaxed mb-8 max-w-xs"
+									initial={{ opacity: 0, y: 20 }}
+									animate={{ opacity: 1, y: 0 }}
+									transition={{ duration: 0.7, delay: 0.2 }}
+								>
 									We think that education is best way to help needy. You are nonprofit organization, NGO. If you can, let do it.
-								</p>
-
-								<button
-									className="px-8 py-3 border-2 border-white text-white font-semibold rounded-full hover:bg-white hover:text-[#4B80B3] transition-all duration-300 transform hover:scale-105"
+								</motion.p>
+								<motion.button
+									className="px-8 py-3 border-2 border-white text-white font-semibold rounded-full hover:bg-white hover:text-[#4B80B3] transition-all duration-300 transform hover:scale-105 shadow-lg"
+									whileHover={{ scale: 1.08, backgroundColor: '#fff', color: '#4B80B3' }}
 									onClick={() => navigate('/scholarship')}
 								>
 									Learn More
-								</button>
-
-								{/* Decorative Elements */}
-								<div className="absolute top-6 left-6 w-16 h-16 border border-white/20 rounded-full"></div>
-								<div className="absolute bottom-6 right-6 w-24 h-24 border border-white/20 rounded-full"></div>
+								</motion.button>
+								{/* Decorative Animated Circles */}
+								<motion.div className="absolute top-6 left-6 w-16 h-16 border-2 border-white/30 rounded-full" animate={{ scale: [1, 1.15, 1] }} transition={{ repeat: Infinity, duration: 2 }}></motion.div>
+								<motion.div className="absolute bottom-6 right-6 w-24 h-24 border-2 border-white/30 rounded-full" animate={{ scale: [1, 1.2, 1] }} transition={{ repeat: Infinity, duration: 2.5 }}></motion.div>
 							</motion.div>
-						</div>
+						</motion.div>
 					</div>
 				</section>
 
@@ -1091,8 +1121,8 @@ const Home2 = () => {
 													{selectedImage.image}
 												</div>
 											) : (
-												<img 
-													src={selectedImage.image} 
+												<img
+													src={selectedImage.image}
 													alt={selectedImage.title}
 													className="w-full h-full object-cover rounded-xl"
 												/>

@@ -508,7 +508,7 @@ const Blog = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12 px-0 w-full" dir={language === 'ar' || language === 'he' ? 'rtl' : 'ltr'}>
+  <div className="min-h-screen py-12 px-0 w-full" dir={language === 'ar' || language === 'he' ? 'rtl' : 'ltr'}>
       <section className="relative w-full h-screen overflow-hidden bg-white dark:bg-black mb-10">
         <video
           className="absolute inset-0 w-full h-full object-cover"
@@ -539,11 +539,7 @@ const Blog = () => {
         </div>
       </section>
       <section className="py-20 bg-white relative overflow-hidden">
-        {/* Animated Background */}
-        <div className="absolute inset-0">
-          <div className="absolute top-10 left-10 w-72 h-72 rounded-full blur-3xl animate-pulse" style={{ backgroundColor: '#4B80B3', opacity: 0.1 }}></div>
-          <div className="absolute bottom-10 right-10 w-96 h-96 rounded-full blur-3xl animate-pulse delay-1000" style={{ backgroundColor: '#4B80B3', opacity: 0.1 }}></div>
-        </div>
+        {/* Removed decorative squares background */}
 
         <div className="relative z-10 container mx-auto px-6">
           {/* Header */}
@@ -773,40 +769,7 @@ const Blog = () => {
             ))}
           </div>
 
-          {/* Blog Categories */}
-          <div className="mt-16">
-            <h3 className="text-2xl font-bold text-black text-center mb-8">{t.exploreTopicsTitle}</h3>
-            <div className="flex flex-wrap justify-center gap-4">
-              {categories.filter(cat => cat !== 'all').map((category, index) => (
-                <button
-                  key={index}
-                  onClick={() => setActiveCategory(category)}
-                  className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${activeCategory === category
-                      ? 'text-white shadow-lg'
-                      : 'text-black border-2 hover:text-white'
-                    }`}
-                  style={{
-                    backgroundColor: activeCategory === category ? '#4B80B3' : 'transparent',
-                    borderColor: '#4B80B3'
-                  }}
-                  onMouseEnter={(e) => {
-                    if (activeCategory !== category) {
-                      e.target.style.backgroundColor = '#4B80B3';
-                      e.target.style.color = 'white';
-                    }
-                  }}
-                  onMouseLeave={(e) => {
-                    if (activeCategory !== category) {
-                      e.target.style.backgroundColor = 'transparent';
-                      e.target.style.color = 'black';
-                    }
-                  }}
-                >
-                  {category}
-                </button>
-              ))}
-            </div>
-          </div>
+         
 
         </div>
       </section>
@@ -907,11 +870,7 @@ const Blog = () => {
                     Your browser does not support the video tag.
                   </video>
 
-                  {/* Duration Badge */}
-                  <div className="absolute top-4 right-4 bg-black bg-opacity-70 text-white px-3 py-1 rounded-full text-sm font-semibold flex items-center gap-1">
-                    <span>🎥</span>
-                    {item.duration}
-                  </div>
+                  
 
 
                 </div>
@@ -920,9 +879,7 @@ const Blog = () => {
                 <div className="p-6">
                   <div className="flex justify-between items-start mb-3">
                     <h3 className="text-xl font-bold text-black transition-colors duration-300" style={{ color: index === 0 ? '#4B80B3' : '' }}>{item.title}</h3>
-                    <span className="text-xs px-2 py-1 rounded-full font-semibold text-white" style={{ backgroundColor: '#4B80B3' }}>
-                      HD
-                    </span>
+                   
                   </div>
 
                   <p className="text-black/60 mb-4 leading-relaxed">{item.description}</p>
